@@ -98,25 +98,155 @@ requirement[name="Line Detection"] {
 </val>
 </styleSheet>
 </Core:StyleSheet>
-<UML:Package id="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed">
+<UML:Diagram id="cc75f448-f1a4-11ed-9230-f47b099bf663">
+<diagramType>
+<val></val>
+</diagramType>
 <name>
-<val>1. Concept Level</val>
+<val>Model Navigation</val>
 </name>
-<nestedPackage>
+</UML:Diagram>
+<SysML:Requirement id="4d1cbc97-213a-11f0-a4ba-001999eb5b7a">
+<externalId>
+<val>19.1</val>
+</externalId>
+<name>
+<val>Drive</val>
+</name>
+<presentation>
 <reflist>
-<ref refid="f3a4d688-70f4-11ec-aabc-f47b099bf663"/>
-<ref refid="012edaba-70f5-11ec-aabc-f47b099bf663"/>
-<ref refid="07bbcb9a-70f5-11ec-aabc-f47b099bf663"/>
+<ref refid="010f61f9-2391-11f0-b249-001999eb5b7a"/>
 </reflist>
-</nestedPackage>
-<packagedElement>
+</presentation>
+<text>
+<val>This autonomous car needs to be able to drive, while also following a line and have the ability to avoid obstacles.</val>
+</text>
+</SysML:Requirement>
+<SysML:Requirement id="157e4d86-213b-11f0-bd92-001999eb5b7a">
+<externalId>
+<val>19.2</val>
+</externalId>
+<name>
+<val>Charge</val>
+</name>
+<presentation>
 <reflist>
-<ref refid="f3a4d688-70f4-11ec-aabc-f47b099bf663"/>
-<ref refid="012edaba-70f5-11ec-aabc-f47b099bf663"/>
-<ref refid="07bbcb9a-70f5-11ec-aabc-f47b099bf663"/>
+<ref refid="00fee470-2391-11f0-8afa-001999eb5b7a"/>
 </reflist>
-</packagedElement>
-</UML:Package>
+</presentation>
+<text>
+<val>The vehicle also includes a battery, which will provide the vehicle with energy during its operation.</val>
+</text>
+</SysML:Requirement>
+<SysML:Requirement id="7e2a1788-213d-11f0-bf88-001999eb5b7a">
+<externalId>
+<val>19.3</val>
+</externalId>
+<name>
+<val>Structural Stability</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="01060b21-2391-11f0-bbef-001999eb5b7a"/>
+</reflist>
+</presentation>
+<text>
+<val>While in operation, the components need to be stable and durable in order to ensure reliability while driving.</val>
+</text>
+</SysML:Requirement>
+<SysML:Requirement id="5ef74bb3-2140-11f0-ab0c-001999eb5b7a">
+<externalId>
+<val>19.1.1</val>
+</externalId>
+<name>
+<val>Line Detection</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="00f9bac1-2391-11f0-b41a-001999eb5b7a"/>
+</reflist>
+</presentation>
+<text>
+<val>The car shall detect and follow a line using the IR sensors.</val>
+</text>
+</SysML:Requirement>
+<SysML:Requirement id="c53e6499-2140-11f0-911f-001999eb5b7a">
+<externalId>
+<val>19.1.2</val>
+</externalId>
+<name>
+<val>Obstacle Detection</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="010bcef8-2391-11f0-bce5-001999eb5b7a"/>
+</reflist>
+</presentation>
+<text>
+<val>The car shall detect obstacles using the ultrasonic sensor and avoid collisions.</val>
+</text>
+</SysML:Requirement>
+<SysML:Requirement id="577190c7-2141-11f0-b138-001999eb5b7a">
+<externalId>
+<val>19.2.1</val>
+</externalId>
+<name>
+<val>Battery Handling</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="00eefbf2-2391-11f0-b19b-001999eb5b7a"/>
+</reflist>
+</presentation>
+<text>
+<val>The design shall allow easy removal, replacement, and charging of the LiPo battery.</val>
+</text>
+</SysML:Requirement>
+<UML:Comment id="0d6366ba-2143-11f0-b29c-001999eb5b7a">
+<body>
+<val>Master
+Guidlines for the prototyping project 
+</val>
+</body>
+<presentation>
+<reflist>
+<ref refid="00f23aaa-2391-11f0-a146-001999eb5b7a"/>
+<ref refid="0113a810-2391-11f0-a68d-001999eb5b7a"/>
+</reflist>
+</presentation>
+</UML:Comment>
+<SysML:Requirement id="9488accf-2143-11f0-8040-001999eb5b7a">
+<externalId>
+<val>19.1.3</val>
+</externalId>
+<name>
+<val>Speed Optimization</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="010319b0-2391-11f0-adc2-001999eb5b7a"/>
+</reflist>
+</presentation>
+<text>
+<val>While driving, the car should be able to regulate its speed during operation, adapting to different road conditions</val>
+</text>
+</SysML:Requirement>
+<SysML:Requirement id="effbee21-2143-11f0-86a1-001999eb5b7a">
+<externalId>
+<val>19.1.4</val>
+</externalId>
+<name>
+<val>Different routings</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="00f420b8-2391-11f0-a1a0-001999eb5b7a"/>
+</reflist>
+</presentation>
+<text>
+<val>The car should be able to adjust its path based on sensor input, such as detecting a line or obstacle and choosing a different route.</val>
+</text>
+</SysML:Requirement>
 <UML:Package id="658aa470-6714-11ec-ba25-0456e5e540ed">
 <name>
 <val>2. Logical Level</val>
@@ -130,67 +260,15 @@ requirement[name="Line Detection"] {
 </nestedPackage>
 <packagedElement>
 <reflist>
-<ref refid="cca1054c-70f5-11ec-aabc-f47b099bf663"/>
-<ref refid="d500175a-70f5-11ec-aabc-f47b099bf663"/>
 <ref refid="e1940b84-70f5-11ec-aabc-f47b099bf663"/>
+<ref refid="d500175a-70f5-11ec-aabc-f47b099bf663"/>
+<ref refid="cca1054c-70f5-11ec-aabc-f47b099bf663"/>
 </reflist>
 </packagedElement>
 </UML:Package>
-<UML:Package id="69467c56-6714-11ec-ba25-0456e5e540ed">
-<name>
-<val>3. Technology Level</val>
-</name>
-<nestedPackage>
-<reflist>
-<ref refid="1fadfc94-70f7-11ec-aabc-f47b099bf663"/>
-<ref refid="274478f2-70f7-11ec-aabc-f47b099bf663"/>
-<ref refid="305ca2c0-70f7-11ec-aabc-f47b099bf663"/>
-</reflist>
-</nestedPackage>
-<packagedElement>
-<reflist>
-<ref refid="1fadfc94-70f7-11ec-aabc-f47b099bf663"/>
-<ref refid="274478f2-70f7-11ec-aabc-f47b099bf663"/>
-<ref refid="305ca2c0-70f7-11ec-aabc-f47b099bf663"/>
-</reflist>
-</packagedElement>
-</UML:Package>
-<UML:Package id="f3a4d688-70f4-11ec-aabc-f47b099bf663">
+<UML:Package id="e1940b84-70f5-11ec-aabc-f47b099bf663">
 <name>
 <val>Behavior</val>
-</name>
-<owningPackage>
-<ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
-</owningPackage>
-<package>
-<ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
-</package>
-</UML:Package>
-<UML:Package id="012edaba-70f5-11ec-aabc-f47b099bf663">
-<name>
-<val>Requirements</val>
-</name>
-<owningPackage>
-<ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
-</owningPackage>
-<package>
-<ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
-</package>
-</UML:Package>
-<UML:Package id="07bbcb9a-70f5-11ec-aabc-f47b099bf663">
-<name>
-<val>Structure</val>
-</name>
-<owningPackage>
-<ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
-</owningPackage>
-<package>
-<ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
-</package>
-</UML:Package>
-<UML:Package id="cca1054c-70f5-11ec-aabc-f47b099bf663">
-<name>
-<val>Requirements</val>
 </name>
 <owningPackage>
 <ref refid="658aa470-6714-11ec-ba25-0456e5e540ed"/>
@@ -210,457 +288,99 @@ requirement[name="Line Detection"] {
 <ref refid="658aa470-6714-11ec-ba25-0456e5e540ed"/>
 </package>
 </UML:Package>
-<UML:Package id="e1940b84-70f5-11ec-aabc-f47b099bf663">
-<name>
-<val>Behavior</val>
-</name>
-<owningPackage>
-<ref refid="658aa470-6714-11ec-ba25-0456e5e540ed"/>
-</owningPackage>
-<package>
-<ref refid="658aa470-6714-11ec-ba25-0456e5e540ed"/>
-</package>
-</UML:Package>
-<UML:Package id="1fadfc94-70f7-11ec-aabc-f47b099bf663">
-<name>
-<val>Behavior</val>
-</name>
-<owningPackage>
-<ref refid="69467c56-6714-11ec-ba25-0456e5e540ed"/>
-</owningPackage>
-<package>
-<ref refid="69467c56-6714-11ec-ba25-0456e5e540ed"/>
-</package>
-</UML:Package>
-<UML:Package id="274478f2-70f7-11ec-aabc-f47b099bf663">
+<UML:Package id="cca1054c-70f5-11ec-aabc-f47b099bf663">
 <name>
 <val>Requirements</val>
 </name>
+<ownedDiagram>
+<reflist>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</reflist>
+</ownedDiagram>
 <owningPackage>
-<ref refid="69467c56-6714-11ec-ba25-0456e5e540ed"/>
+<ref refid="658aa470-6714-11ec-ba25-0456e5e540ed"/>
 </owningPackage>
 <package>
-<ref refid="69467c56-6714-11ec-ba25-0456e5e540ed"/>
+<ref refid="658aa470-6714-11ec-ba25-0456e5e540ed"/>
 </package>
+<presentation>
+<reflist>
+<ref refid="e0b133f0-2390-11f0-ad1d-001999eb5b7a"/>
+</reflist>
+</presentation>
 </UML:Package>
-<UML:Package id="305ca2c0-70f7-11ec-aabc-f47b099bf663">
+<SysML:RequirementDiagram id="e09c6769-2390-11f0-ab25-001999eb5b7a">
+<element>
+<ref refid="cca1054c-70f5-11ec-aabc-f47b099bf663"/>
+</element>
 <name>
-<val>Structure</val>
-</name>
-<owningPackage>
-<ref refid="69467c56-6714-11ec-ba25-0456e5e540ed"/>
-</owningPackage>
-<package>
-<ref refid="69467c56-6714-11ec-ba25-0456e5e540ed"/>
-</package>
-</UML:Package>
-<UML:Diagram id="cc75f448-f1a4-11ed-9230-f47b099bf663">
-<diagramType>
-<val></val>
-</diagramType>
-<name>
-<val>Model Navigation</val>
+<val>Autonomous car </val>
 </name>
 <ownedPresentation>
 <reflist>
-<ref refid="c9d44bbc-2138-11f0-8c19-001999eb5b7a"/>
-<ref refid="4d1d8a5a-213a-11f0-8796-001999eb5b7a"/>
-<ref refid="157f1afd-213b-11f0-8181-001999eb5b7a"/>
-<ref refid="7e2a91da-213d-11f0-a894-001999eb5b7a"/>
-<ref refid="4f8b07b4-2140-11f0-92c9-001999eb5b7a"/>
-<ref refid="5ef7b77c-2140-11f0-a7cf-001999eb5b7a"/>
-<ref refid="c53f4334-2140-11f0-8def-001999eb5b7a"/>
-<ref refid="5772936c-2141-11f0-9735-001999eb5b7a"/>
-<ref refid="9a40756e-213d-11f0-badb-001999eb5b7a"/>
-<ref refid="0d636f34-2143-11f0-837f-001999eb5b7a"/>
-<ref refid="298dc3a8-2143-11f0-80ec-001999eb5b7a"/>
-<ref refid="948982ce-2143-11f0-a40d-001999eb5b7a"/>
-<ref refid="effc597c-2143-11f0-b08e-001999eb5b7a"/>
-<ref refid="e0411566-2138-11f0-940f-001999eb5b7a"/>
-<ref refid="2ddbda5d-213a-11f0-a2c9-001999eb5b7a"/>
-<ref refid="33367b89-213a-11f0-9fa6-001999eb5b7a"/>
-<ref refid="362225d4-213a-11f0-a754-001999eb5b7a"/>
-<ref refid="2f6cf413-2143-11f0-b9dd-001999eb5b7a"/>
-<ref refid="361cc4ad-2143-11f0-a1b1-001999eb5b7a"/>
-<ref refid="3277d41e-2144-11f0-b380-001999eb5b7a"/>
-<ref refid="429baade-2144-11f0-b5db-001999eb5b7a"/>
-<ref refid="4bd3fa83-2144-11f0-96f5-001999eb5b7a"/>
-<ref refid="520f16cb-2144-11f0-ae5f-001999eb5b7a"/>
-<ref refid="55465c27-2144-11f0-bef8-001999eb5b7a"/>
-<ref refid="59019192-2144-11f0-8e9d-001999eb5b7a"/>
-<ref refid="5bc0f371-2144-11f0-bd51-001999eb5b7a"/>
-<ref refid="74a89377-2144-11f0-9365-001999eb5b7a"/>
-<ref refid="7d115685-2144-11f0-9818-001999eb5b7a"/>
-<ref refid="9213d956-2144-11f0-a156-001999eb5b7a"/>
-<ref refid="a9fe7470-2144-11f0-87b6-001999eb5b7a"/>
-<ref refid="b62c635f-2144-11f0-9b16-001999eb5b7a"/>
-<ref refid="c1dc2a75-2144-11f0-9633-001999eb5b7a"/>
-<ref refid="ccc3804a-2144-11f0-9db8-001999eb5b7a"/>
-<ref refid="e9731a2c-2144-11f0-b311-001999eb5b7a"/>
-<ref refid="fc16ba59-2144-11f0-926c-001999eb5b7a"/>
-<ref refid="19f2852d-2145-11f0-8748-001999eb5b7a"/>
-<ref refid="25a503b0-2145-11f0-a53c-001999eb5b7a"/>
+<ref refid="e0b133f0-2390-11f0-ad1d-001999eb5b7a"/>
+<ref refid="00eefbf2-2391-11f0-b19b-001999eb5b7a"/>
+<ref refid="00f23aaa-2391-11f0-a146-001999eb5b7a"/>
+<ref refid="00f420b8-2391-11f0-a1a0-001999eb5b7a"/>
+<ref refid="00f9bac1-2391-11f0-b41a-001999eb5b7a"/>
+<ref refid="00fee470-2391-11f0-8afa-001999eb5b7a"/>
+<ref refid="010319b0-2391-11f0-adc2-001999eb5b7a"/>
+<ref refid="01060b21-2391-11f0-bbef-001999eb5b7a"/>
+<ref refid="010bcef8-2391-11f0-bce5-001999eb5b7a"/>
+<ref refid="010f61f9-2391-11f0-b249-001999eb5b7a"/>
+<ref refid="0113a810-2391-11f0-a68d-001999eb5b7a"/>
+<ref refid="00fd464e-2391-11f0-b226-001999eb5b7a"/>
+<ref refid="0108f5b3-2391-11f0-b94c-001999eb5b7a"/>
+<ref refid="00f3942b-2391-11f0-9a28-001999eb5b7a"/>
+<ref refid="00f65619-2391-11f0-b1fc-001999eb5b7a"/>
+<ref refid="00f710b8-2391-11f0-801d-001999eb5b7a"/>
+<ref refid="00f796c2-2391-11f0-a3a3-001999eb5b7a"/>
+<ref refid="00f82334-2391-11f0-8ee2-001999eb5b7a"/>
+<ref refid="00f8aaa7-2391-11f0-8644-001999eb5b7a"/>
+<ref refid="00f934cc-2391-11f0-a7a6-001999eb5b7a"/>
+<ref refid="00fc2036-2391-11f0-87e0-001999eb5b7a"/>
+<ref refid="00fcb7f8-2391-11f0-940f-001999eb5b7a"/>
+<ref refid="01016209-2391-11f0-a682-001999eb5b7a"/>
+<ref refid="0101fefa-2391-11f0-a955-001999eb5b7a"/>
+<ref refid="010290e4-2391-11f0-904c-001999eb5b7a"/>
+<ref refid="01057761-2391-11f0-924e-001999eb5b7a"/>
+<ref refid="01086387-2391-11f0-bca2-001999eb5b7a"/>
+<ref refid="010b3760-2391-11f0-afac-001999eb5b7a"/>
+<ref refid="010e3136-2391-11f0-8e98-001999eb5b7a"/>
+<ref refid="010ecec1-2391-11f0-bdc3-001999eb5b7a"/>
+<ref refid="0111e367-2391-11f0-af18-001999eb5b7a"/>
+<ref refid="01127d57-2391-11f0-9117-001999eb5b7a"/>
+<ref refid="01130eb5-2391-11f0-a38a-001999eb5b7a"/>
+<ref refid="0115571f-2391-11f0-a7d1-001999eb5b7a"/>
+<ref refid="0115f563-2391-11f0-9925-001999eb5b7a"/>
+<ref refid="0116963f-2391-11f0-8ab3-001999eb5b7a"/>
+<ref refid="01173095-2391-11f0-a1a0-001999eb5b7a"/>
 </reflist>
 </ownedPresentation>
-</UML:Diagram>
-<SysML:Requirement id="c9d3dc58-2138-11f0-96aa-001999eb5b7a">
-<name>
-<val>Autonomous Car</val>
-</name>
-<presentation>
-<reflist>
-<ref refid="c9d44bbc-2138-11f0-8c19-001999eb5b7a"/>
-</reflist>
-</presentation>
-</SysML:Requirement>
-<SysML:RequirementItem id="c9d44bbc-2138-11f0-8c19-001999eb5b7a">
+</SysML:RequirementDiagram>
+<SysML:DiagramFrameItem id="e0b133f0-2390-11f0-ad1d-001999eb5b7a">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 856.7942237786191, 72.6410142005865)</val>
+<val>(1.0, 0.0, 0.0, 1.0, -186.48089161504004, -74.15979652360745)</val>
 </matrix>
 <top-left>
-<val>(-43.06153152792592, 0.0)</val>
+<val>(-56.23869823483551, 0.0)</val>
 </top-left>
 <width>
-<val>187.16396755979497</val>
+<val>2280.8199068592967</val>
 </width>
 <height>
-<val>77.99999999999994</val>
+<val>1311.8928555927814</val>
 </height>
 <diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
 </diagram>
 <subject>
-<ref refid="c9d3dc58-2138-11f0-96aa-001999eb5b7a"/>
+<ref refid="cca1054c-70f5-11ec-aabc-f47b099bf663"/>
 </subject>
-</SysML:RequirementItem>
-<UML:ContainmentItem id="e0411566-2138-11f0-940f-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
+</SysML:DiagramFrameItem>
+<SysML:RequirementItem id="00eefbf2-2391-11f0-b19b-001999eb5b7a">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 913.4220025868299, 151.44537935980784)</val>
-</matrix>
-<points>
-<val>[(-6.107326556239286, -0.8043651592213621), (-6.627778808210792, 53.28534097515801)]</val>
-</points>
-<head-connection>
-<ref refid="c9d44bbc-2138-11f0-8c19-001999eb5b7a"/>
-</head-connection>
-</UML:ContainmentItem>
-<general:Line id="2ddbda5d-213a-11f0-a2c9-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 911.7852021602419, 204.73072033496587)</val>
-</matrix>
-<points>
-<val>[(-90.96731197909071, 0.0), (1.6368004265877403, 0.0)]</val>
-</points>
-</general:Line>
-<general:Line id="33367b89-213a-11f0-9fa6-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 703.2788083768864, 250.06488865570998)</val>
-</matrix>
-<points>
-<val>[(0.0, 0.0), (0.0, 0.0)]</val>
-</points>
-</general:Line>
-<general:Line id="362225d4-213a-11f0-a754-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 913.8179912547464, 202.69793124046103)</val>
-</matrix>
-<points>
-<val>[(-2.5425155994679756, 2.032789094504821), (88.93452288458599, 2.0327890945048352)]</val>
-</points>
-</general:Line>
-<SysML:Requirement id="4d1cbc97-213a-11f0-a4ba-001999eb5b7a">
-<externalId>
-<val>19.1</val>
-</externalId>
-<name>
-<val>Drive</val>
-</name>
-<presentation>
-<reflist>
-<ref refid="4d1d8a5a-213a-11f0-8796-001999eb5b7a"/>
-</reflist>
-</presentation>
-<text>
-<val>This autonomous car needs to be able to drive, while also following a line and have the ability to avoid obstacles.</val>
-</text>
-</SysML:Requirement>
-<SysML:RequirementItem id="4d1d8a5a-213a-11f0-8796-001999eb5b7a">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 70.22519554611826, 329.2328810837906)</val>
-</matrix>
-<top-left>
-<val>(-20.0, -20.0)</val>
-</top-left>
-<width>
-<val>271.86167537231523</val>
-</width>
-<height>
-<val>140.0</val>
-</height>
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<subject>
-<ref refid="4d1cbc97-213a-11f0-a4ba-001999eb5b7a"/>
-</subject>
-</SysML:RequirementItem>
-<SysML:Requirement id="157e4d86-213b-11f0-bd92-001999eb5b7a">
-<externalId>
-<val>19.2</val>
-</externalId>
-<name>
-<val>Charge</val>
-</name>
-<nestedClassifier>
-<reflist>
-<ref refid="577190c7-2141-11f0-b138-001999eb5b7a"/>
-</reflist>
-</nestedClassifier>
-<presentation>
-<reflist>
-<ref refid="157f1afd-213b-11f0-8181-001999eb5b7a"/>
-</reflist>
-</presentation>
-<text>
-<val>The vehicle also includes a battery, which will provide the vehicle with energy during its operation.</val>
-</text>
-</SysML:Requirement>
-<SysML:RequirementItem id="157f1afd-213b-11f0-8181-001999eb5b7a">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 790.8633860924614, 329.2328810837906)</val>
-</matrix>
-<top-left>
-<val>(-20.0, -20.0)</val>
-</top-left>
-<width>
-<val>271.86167537231523</val>
-</width>
-<height>
-<val>140.0</val>
-</height>
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<subject>
-<ref refid="157e4d86-213b-11f0-bd92-001999eb5b7a"/>
-</subject>
-</SysML:RequirementItem>
-<SysML:Requirement id="7e2a1788-213d-11f0-bf88-001999eb5b7a">
-<comment>
-<reflist>
-<ref refid="0d6366ba-2143-11f0-b29c-001999eb5b7a"/>
-</reflist>
-</comment>
-<externalId>
-<val>19.3</val>
-</externalId>
-<name>
-<val>Structural Stability</val>
-</name>
-<presentation>
-<reflist>
-<ref refid="7e2a91da-213d-11f0-a894-001999eb5b7a"/>
-</reflist>
-</presentation>
-<text>
-<val>While in operation, the components need to be stable and durable in order to ensure reliability while driving.</val>
-</text>
-</SysML:Requirement>
-<SysML:RequirementItem id="7e2a91da-213d-11f0-a894-001999eb5b7a">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 1436.9123533185468, 309.2328810837907)</val>
-</matrix>
-<top-left>
-<val>(2.0820407113703823, 0.0)</val>
-</top-left>
-<width>
-<val>274.8293739008973</val>
-</width>
-<height>
-<val>140.0</val>
-</height>
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<subject>
-<ref refid="7e2a1788-213d-11f0-bf88-001999eb5b7a"/>
-</subject>
-</SysML:RequirementItem>
-<UML:FlowFinalNode id="4f8a294a-2140-11f0-817c-001999eb5b7a">
-<activity>
-<ref refid="4f8f60f5-2140-11f0-87a1-001999eb5b7a"/>
-</activity>
-<presentation>
-<reflist>
-<ref refid="4f8b07b4-2140-11f0-92c9-001999eb5b7a"/>
-</reflist>
-</presentation>
-</UML:FlowFinalNode>
-<UML:FlowFinalNodeItem id="4f8b07b4-2140-11f0-92c9-001999eb5b7a">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 179.5538727456541, 449.2328810837907)</val>
-</matrix>
-<top-left>
-<val>(0.0, 0.0)</val>
-</top-left>
-<width>
-<val>20.0</val>
-</width>
-<height>
-<val>20.0</val>
-</height>
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<subject>
-<ref refid="4f8a294a-2140-11f0-817c-001999eb5b7a"/>
-</subject>
-</UML:FlowFinalNodeItem>
-<UML:Activity id="4f8f60f5-2140-11f0-87a1-001999eb5b7a">
-<name>
-<val>Activity</val>
-</name>
-<node>
-<reflist>
-<ref refid="4f8a294a-2140-11f0-817c-001999eb5b7a"/>
-</reflist>
-</node>
-</UML:Activity>
-<SysML:Requirement id="5ef74bb3-2140-11f0-ab0c-001999eb5b7a">
-<externalId>
-<val>19.1.1</val>
-</externalId>
-<name>
-<val>Line Detection</val>
-</name>
-<presentation>
-<reflist>
-<ref refid="5ef7b77c-2140-11f0-a7cf-001999eb5b7a"/>
-</reflist>
-</presentation>
-<text>
-<val>The car shall detect and follow a line using the IR sensors.</val>
-</text>
-</SysML:Requirement>
-<SysML:RequirementItem id="5ef7b77c-2140-11f0-a7cf-001999eb5b7a">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, -181.05354910831355, 555.4254940103335)</val>
-</matrix>
-<top-left>
-<val>(-2.842170943040401e-14, 0.0)</val>
-</top-left>
-<width>
-<val>271.8616753723153</val>
-</width>
-<height>
-<val>133.33013903205062</val>
-</height>
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<subject>
-<ref refid="5ef74bb3-2140-11f0-ab0c-001999eb5b7a"/>
-</subject>
-</SysML:RequirementItem>
-<SysML:Requirement id="c53e6499-2140-11f0-911f-001999eb5b7a">
-<externalId>
-<val>19.1.2</val>
-</externalId>
-<name>
-<val>Obstacle Detection</val>
-</name>
-<presentation>
-<reflist>
-<ref refid="c53f4334-2140-11f0-8def-001999eb5b7a"/>
-</reflist>
-</presentation>
-<text>
-<val>The car shall detect obstacles using the ultrasonic sensor and avoid collisions.</val>
-</text>
-</SysML:Requirement>
-<SysML:RequirementItem id="c53f4334-2140-11f0-8def-001999eb5b7a">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 204.51135045819336, 537.192312604241)</val>
-</matrix>
-<top-left>
-<val>(0.0, 18.233181406092513)</val>
-</top-left>
-<width>
-<val>287.20688825633334</val>
-</width>
-<height>
-<val>133.33013903205062</val>
-</height>
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<subject>
-<ref refid="c53e6499-2140-11f0-911f-001999eb5b7a"/>
-</subject>
-</SysML:RequirementItem>
-<SysML:Requirement id="577190c7-2141-11f0-b138-001999eb5b7a">
-<comment>
-<reflist>
-<ref refid="0d6366ba-2143-11f0-b29c-001999eb5b7a"/>
-</reflist>
-</comment>
-<externalId>
-<val>19.2.1</val>
-</externalId>
-<name>
-<val>Battery Handling</val>
-</name>
-<nestingClass>
-<ref refid="157e4d86-213b-11f0-bd92-001999eb5b7a"/>
-</nestingClass>
-<presentation>
-<reflist>
-<ref refid="5772936c-2141-11f0-9735-001999eb5b7a"/>
-</reflist>
-</presentation>
-<text>
-<val>The design shall allow easy removal, replacement, and charging of the LiPo battery.</val>
-</text>
-</SysML:Requirement>
-<SysML:RequirementItem id="5772936c-2141-11f0-9735-001999eb5b7a">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 707.3339938396114, 622.0905635263589)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 717.3339938396114, 632.0905635263589)</val>
 </matrix>
 <top-left>
 <val>(0.0, 0.0)</val>
@@ -669,205 +389,55 @@ requirement[name="Line Detection"] {
 <val>287.20688825633346</val>
 </width>
 <height>
-<val>154.0</val>
-</height>
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<subject>
-<ref refid="577190c7-2141-11f0-b138-001999eb5b7a"/>
-</subject>
-</SysML:RequirementItem>
-<UML:InteractionItem id="9a40756e-213d-11f0-badb-001999eb5b7a">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, -22.127614056969694, -64.2045103229095)</val>
-</matrix>
-<top-left>
-<val>(-203.7162878786866, 0.0)</val>
-</top-left>
-<width>
-<val>2293.788869691484</val>
-</width>
-<height>
-<val>1263.8874261313274</val>
-</height>
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<subject>
-<ref refid="9a3f8fa1-213d-11f0-8f50-001999eb5b7a"/>
-</subject>
-</UML:InteractionItem>
-<UML:Interaction id="9a3f8fa1-213d-11f0-8f50-001999eb5b7a">
-<name>
-<val>req [package] Autonomous car  [Autonomous car]</val>
-</name>
-<presentation>
-<reflist>
-<ref refid="9a40756e-213d-11f0-badb-001999eb5b7a"/>
-</reflist>
-</presentation>
-</UML:Interaction>
-<UML:Comment id="0d6366ba-2143-11f0-b29c-001999eb5b7a">
-<annotatedElement>
-<reflist>
-<ref refid="577190c7-2141-11f0-b138-001999eb5b7a"/>
-<ref refid="7e2a1788-213d-11f0-bf88-001999eb5b7a"/>
-</reflist>
-</annotatedElement>
-<body>
-<val>Master
-Guidlines for the prototyping project 
-</val>
-</body>
-<presentation>
-<reflist>
-<ref refid="0d636f34-2143-11f0-837f-001999eb5b7a"/>
-<ref refid="298dc3a8-2143-11f0-80ec-001999eb5b7a"/>
-</reflist>
-</presentation>
-</UML:Comment>
-<UML:CommentItem id="0d636f34-2143-11f0-837f-001999eb5b7a">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 1558.78907004581, 494.4254940103338)</val>
-</matrix>
-<top-left>
-<val>(0.0, 0.0)</val>
-</top-left>
-<width>
-<val>310.0693957700081</val>
-</width>
-<height>
-<val>61.0</val>
-</height>
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<subject>
-<ref refid="0d6366ba-2143-11f0-b29c-001999eb5b7a"/>
-</subject>
-</UML:CommentItem>
-<UML:CommentItem id="298dc3a8-2143-11f0-80ec-001999eb5b7a">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 887.6903635797727, 827.6949473708502)</val>
-</matrix>
-<top-left>
-<val>(0.0, 0.0)</val>
-</top-left>
-<width>
-<val>310.0693957700081</val>
-</width>
-<height>
-<val>61.0</val>
-</height>
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<subject>
-<ref refid="0d6366ba-2143-11f0-b29c-001999eb5b7a"/>
-</subject>
-</UML:CommentItem>
-<UML:CommentLineItem id="2f6cf413-2143-11f0-b9dd-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 926.4505446969424, 826.747298725825)</val>
-</matrix>
-<points>
-<val>[(75.6843793057958, 0.9476486450251969), (36.780289361740074, -50.656735199466084)]</val>
-</points>
-<head-connection>
-<ref refid="298dc3a8-2143-11f0-80ec-001999eb5b7a"/>
-</head-connection>
-<tail-connection>
-<ref refid="5772936c-2141-11f0-9735-001999eb5b7a"/>
-</tail-connection>
-</UML:CommentLineItem>
-<UML:CommentLineItem id="361cc4ad-2143-11f0-a1b1-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 1732.4663921006727, 498.6264111432039)</val>
-</matrix>
-<points>
-<val>[(-31.865452988990683, -4.200917132870472), (-70.10165544851156, -49.393530059413195)]</val>
-</points>
-<head-connection>
-<ref refid="0d636f34-2143-11f0-837f-001999eb5b7a"/>
-</head-connection>
-<tail-connection>
-<ref refid="7e2a91da-213d-11f0-a894-001999eb5b7a"/>
-</tail-connection>
-</UML:CommentLineItem>
-<SysML:Requirement id="9488accf-2143-11f0-8040-001999eb5b7a">
-<externalId>
-<val>19.1.3</val>
-</externalId>
-<name>
-<val>Speed Optimization</val>
-</name>
-<presentation>
-<reflist>
-<ref refid="948982ce-2143-11f0-a40d-001999eb5b7a"/>
-</reflist>
-</presentation>
-<text>
-<val>While driving, the car should be able to regulate its speed during operation, adapting to different road conditions</val>
-</text>
-</SysML:Requirement>
-<SysML:RequirementItem id="948982ce-2143-11f0-a40d-001999eb5b7a">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, -138.29369026616348, 729.1940136525174)</val>
-</matrix>
-<top-left>
-<val>(0.0, 0.0)</val>
-</top-left>
-<width>
-<val>289.3466292934846</val>
-</width>
-<height>
 <val>140.0</val>
 </height>
 <diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
 </diagram>
 <subject>
-<ref refid="9488accf-2143-11f0-8040-001999eb5b7a"/>
+<ref refid="577190c7-2141-11f0-b138-001999eb5b7a"/>
 </subject>
 </SysML:RequirementItem>
-<SysML:Requirement id="effbee21-2143-11f0-86a1-001999eb5b7a">
-<externalId>
-<val>19.1.4</val>
-</externalId>
-<name>
-<val>Different routings</val>
-</name>
-<presentation>
-<reflist>
-<ref refid="effc597c-2143-11f0-b08e-001999eb5b7a"/>
-</reflist>
-</presentation>
-<text>
-<val>The car should be able to adjust its path based on sensor input, such as detecting a line or obstacle and choosing a different route.</val>
-</text>
-</SysML:Requirement>
-<SysML:RequirementItem id="effc597c-2143-11f0-b08e-001999eb5b7a">
+<UML:CommentItem id="00f23aaa-2391-11f0-a146-001999eb5b7a">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 204.51135045819333, 838.9090107712469)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 1568.78907004581, 504.4254940103338)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>310.0693957700081</val>
+</width>
+<height>
+<val>61.0</val>
+</height>
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<subject>
+<ref refid="0d6366ba-2143-11f0-b29c-001999eb5b7a"/>
+</subject>
+</UML:CommentItem>
+<general:Line id="00f3942b-2391-11f0-9a28-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, -35.90354649301837, 519.5680461123113)</val>
+</matrix>
+<points>
+<val>[(0.7808350708624374, 2.371132296890636), (0.0, 45.8574478980222)]</val>
+</points>
+</general:Line>
+<SysML:RequirementItem id="00f420b8-2391-11f0-a1a0-001999eb5b7a">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 214.51135045819333, 848.9090107712469)</val>
 </matrix>
 <top-left>
 <val>(0.0, 0.0)</val>
@@ -879,15 +449,15 @@ Guidlines for the prototyping project
 <val>140.0</val>
 </height>
 <diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
 </diagram>
 <subject>
 <ref refid="effbee21-2143-11f0-86a1-001999eb5b7a"/>
 </subject>
 </SysML:RequirementItem>
-<general:Line id="3277d41e-2144-11f0-b380-001999eb5b7a">
+<general:Line id="00f65619-2391-11f0-b1fc-001999eb5b7a">
 <diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
 </diagram>
 <horizontal>
 <val>0</val>
@@ -896,202 +466,15 @@ Guidlines for the prototyping project
 <val>0</val>
 </orthogonal>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 826.5609998380949, 201.52394159437773)</val>
-</matrix>
-<points>
-<val>[(-5.743109656943659, 3.2067787405881063), (-637.0071270924408, 3.2067787405881063)]</val>
-</points>
-</general:Line>
-<general:Line id="429baade-2144-11f0-b5db-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 188.59164481754408, 202.99018518405387)</val>
-</matrix>
-<points>
-<val>[(0.0, 0.0), (0.9622279281099395, 106.2426958997367)]</val>
-</points>
-</general:Line>
-<general:Line id="4bd3fa83-2144-11f0-96f5-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 185.77629992941831, 466.92932082047275)</val>
-</matrix>
-<points>
-<val>[(3.777572816235761, 2.3035602633179195), (3.7775728162357893, 45.00985758872919)]</val>
-</points>
-</general:Line>
-<general:Line id="520f16cb-2144-11f0-ae5f-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 188.3643244397701, 511.93917840920193)</val>
-</matrix>
-<points>
-<val>[(1.189548305884017, 0.0), (173.30524610327058, 0.0)]</val>
-</points>
-</general:Line>
-<general:Line id="55465c27-2144-11f0-bef8-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 360.5085291940256, 512.4134048685801)</val>
-</matrix>
-<points>
-<val>[(0.0, 0.0), (0.0, 43.01208914175348)]</val>
-</points>
-</general:Line>
-<general:Line id="59019192-2144-11f0-8e9d-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 188.3643244397701, 510.5164990310676)</val>
-</matrix>
-<points>
-<val>[(3.911211215290649, 1.4226793781342835), (-233.48703586192602, 1.4226793781342764)]</val>
-</points>
-</general:Line>
-<general:Line id="5bc0f371-2144-11f0-bd51-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, -45.90354649301837, 509.5680461123113)</val>
-</matrix>
-<points>
-<val>[(0.7808350708624374, 2.371132296890636), (0.0, 45.8574478980222)]</val>
-</points>
-</general:Line>
-<general:Line id="74a89377-2144-11f0-9365-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 188.56601306666306, 509.2741415233503)</val>
-</matrix>
-<points>
-<val>[(0.9878596789910148, 2.665036885851599), (0.9878596789910432, 33.770527787634926)]</val>
-</points>
-</general:Line>
-<general:Line id="7d115685-2144-11f0-9818-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 192.27553565506074, 541.1022468888913)</val>
-</matrix>
-<points>
-<val>[(-1.9543175112658133, 1.1398773901722201), (-41.13460949097065, 1.1398773901722166)]</val>
-</points>
-</general:Line>
-<general:Line id="9213d956-2144-11f0-a156-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 151.48176353584856, 541.9020543375614)</val>
-</matrix>
-<points>
-<val>[(0.6218419068084273, -0.6871513618732799), (-0.4288245085273701, 161.33024716709016)]</val>
-</points>
-</general:Line>
-<general:Line id="a9fe7470-2144-11f0-87b6-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 150.33306385244984, 702.3713340439134)</val>
-</matrix>
-<points>
-<val>[(0.0, 0.0), (-143.95343947187106, 0.0)]</val>
-</points>
-</general:Line>
-<general:Line id="b62c635f-2144-11f0-9b16-001999eb5b7a">
-<diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
-</diagram>
-<horizontal>
-<val>0</val>
-</horizontal>
-<orthogonal>
-<val>0</val>
-</orthogonal>
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 7.2036694120953655, 701.7937144528314)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 17.203669412095365, 711.7937144528314)</val>
 </matrix>
 <points>
 <val>[(0.0, 0.0), (0.0, 27.400299199685875)]</val>
 </points>
 </general:Line>
-<general:Line id="c1dc2a75-2144-11f0-9633-001999eb5b7a">
+<general:Line id="00f710b8-2391-11f0-801d-001999eb5b7a">
 <diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
 </diagram>
 <horizontal>
 <val>0</val>
@@ -1100,15 +483,15 @@ Guidlines for the prototyping project
 <val>0</val>
 </orthogonal>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 150.15355834303986, 701.6186302209348)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 713.2788083768864, 260.06488865571)</val>
 </matrix>
 <points>
-<val>[(0.1795055094099851, 0.752703822978475), (210.3549708509857, 0.7527038229785035)]</val>
+<val>[(0.0, 0.0), (0.0, 0.0)]</val>
 </points>
 </general:Line>
-<general:Line id="ccc3804a-2144-11f0-9db8-001999eb5b7a">
+<general:Line id="00f796c2-2391-11f0-a3a3-001999eb5b7a">
 <diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
 </diagram>
 <horizontal>
 <val>0</val>
@@ -1117,15 +500,32 @@ Guidlines for the prototyping project
 <val>0</val>
 </orthogonal>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 359.4539069700666, 700.5278906365755)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 836.5609998380949, 211.52394159437773)</val>
+</matrix>
+<points>
+<val>[(-5.743109656943659, 3.2067787405881063), (-637.0071270924408, 3.2067787405881063)]</val>
+</points>
+</general:Line>
+<general:Line id="00f82334-2391-11f0-8ee2-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 369.4539069700666, 710.5278906365755)</val>
 </matrix>
 <points>
 <val>[(1.0546222239589227, 0.9208719891475283), (0.0, 137.45854871648106)]</val>
 </points>
 </general:Line>
-<general:Line id="e9731a2c-2144-11f0-b311-001999eb5b7a">
+<general:Line id="00f8aaa7-2391-11f0-8644-001999eb5b7a">
 <diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
 </diagram>
 <horizontal>
 <val>0</val>
@@ -1134,15 +534,15 @@ Guidlines for the prototyping project
 <val>0</val>
 </orthogonal>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 906.3273715571958, 201.9067449638069)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 916.3273715571958, 211.9067449638069)</val>
 </matrix>
 <points>
 <val>[(0.4668522214232098, -0.5944724506648456), (0.0, 107.32613611998373)]</val>
 </points>
 </general:Line>
-<UML:ContainmentItem id="fc16ba59-2144-11f0-926c-001999eb5b7a">
+<general:Line id="00f934cc-2391-11f0-a7a6-001999eb5b7a">
 <diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
 </diagram>
 <horizontal>
 <val>0</val>
@@ -1151,21 +551,112 @@ Guidlines for the prototyping project
 <val>0</val>
 </orthogonal>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 895.3962639709937, 460.62262460417537)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 921.7852021602419, 214.73072033496587)</val>
+</matrix>
+<points>
+<val>[(-90.96731197909071, 0.0), (1.6368004265877403, 0.0)]</val>
+</points>
+</general:Line>
+<SysML:RequirementItem id="00f9bac1-2391-11f0-b41a-001999eb5b7a">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, -171.05354910831355, 565.4254940103335)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>271.8616753723153</val>
+</width>
+<height>
+<val>122.0</val>
+</height>
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<subject>
+<ref refid="5ef74bb3-2140-11f0-ab0c-001999eb5b7a"/>
+</subject>
+</SysML:RequirementItem>
+<general:Line id="00fc2036-2391-11f0-87e0-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 923.8179912547464, 212.69793124046103)</val>
+</matrix>
+<points>
+<val>[(-2.5425155994679756, 2.032789094504821), (88.93452288458599, 2.0327890945048352)]</val>
+</points>
+</general:Line>
+<general:Line id="00fcb7f8-2391-11f0-940f-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 160.15355834303986, 711.6186302209348)</val>
+</matrix>
+<points>
+<val>[(0.1795055094099851, 0.752703822978475), (210.3549708509857, 0.7527038229785035)]</val>
+</points>
+</general:Line>
+<SysML:RequirementItem id="00fee470-2391-11f0-8afa-001999eb5b7a">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 800.8633860924614, 339.2328810837906)</val>
+</matrix>
+<top-left>
+<val>(-20.0, -20.0)</val>
+</top-left>
+<width>
+<val>271.86167537231523</val>
+</width>
+<height>
+<val>140.0</val>
+</height>
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<subject>
+<ref refid="157e4d86-213b-11f0-bd92-001999eb5b7a"/>
+</subject>
+</SysML:RequirementItem>
+<UML:ContainmentItem id="01016209-2391-11f0-a682-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 905.3962639709937, 470.62262460417537)</val>
 </matrix>
 <points>
 <val>[(13.111136350810028, -11.389743520384798), (13.111136350810284, 161.46793892218352)]</val>
 </points>
 <head-connection>
-<ref refid="157f1afd-213b-11f0-8181-001999eb5b7a"/>
+<ref refid="00fee470-2391-11f0-8afa-001999eb5b7a"/>
 </head-connection>
 <tail-connection>
-<ref refid="5772936c-2141-11f0-9735-001999eb5b7a"/>
+<ref refid="00eefbf2-2391-11f0-b19b-001999eb5b7a"/>
 </tail-connection>
 </UML:ContainmentItem>
-<general:Line id="19f2852d-2145-11f0-8748-001999eb5b7a">
+<general:Line id="0101fefa-2391-11f0-a955-001999eb5b7a">
 <diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
 </diagram>
 <horizontal>
 <val>0</val>
@@ -1174,15 +665,15 @@ Guidlines for the prototyping project
 <val>0</val>
 </orthogonal>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 1000.722800763525, 204.09809158297207)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 198.3643244397701, 521.939178409202)</val>
 </matrix>
 <points>
-<val>[(0.1738590469631447, 0.6326287519938063), (575.686280216841, 0.6326287519937637)]</val>
+<val>[(1.189548305884017, 0.0), (173.30524610327058, 0.0)]</val>
 </points>
 </general:Line>
-<general:Line id="25a503b0-2145-11f0-a53c-001999eb5b7a">
+<general:Line id="010290e4-2391-11f0-904c-001999eb5b7a">
 <diagram>
-<ref refid="cc75f448-f1a4-11ed-9230-f47b099bf663"/>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
 </diagram>
 <horizontal>
 <val>0</val>
@@ -1191,11 +682,400 @@ Guidlines for the prototyping project
 <val>0</val>
 </orthogonal>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 1574.4358888932138, 203.95044739433712)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 198.56601306666306, 519.2741415233503)</val>
+</matrix>
+<points>
+<val>[(0.9878596789910148, 2.665036885851599), (0.9878596789910432, 33.770527787634926)]</val>
+</points>
+</general:Line>
+<SysML:RequirementItem id="010319b0-2391-11f0-adc2-001999eb5b7a">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, -128.29369026616348, 739.1940136525174)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>289.3466292934846</val>
+</width>
+<height>
+<val>140.0</val>
+</height>
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<subject>
+<ref refid="9488accf-2143-11f0-8040-001999eb5b7a"/>
+</subject>
+</SysML:RequirementItem>
+<general:Line id="01057761-2391-11f0-924e-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 1584.4358888932138, 213.95044739433712)</val>
 </matrix>
 <points>
 <val>[(1.2423018393821614, -0.1842154634069395), (1.2423018393821508, 105.2824336894536)]</val>
 </points>
 </general:Line>
+<SysML:RequirementItem id="01060b21-2391-11f0-bbef-001999eb5b7a">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 1446.9123533185468, 319.2328810837907)</val>
+</matrix>
+<top-left>
+<val>(2.0820407113703823, 0.0)</val>
+</top-left>
+<width>
+<val>274.8293739008973</val>
+</width>
+<height>
+<val>140.0</val>
+</height>
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<subject>
+<ref refid="7e2a1788-213d-11f0-bf88-001999eb5b7a"/>
+</subject>
+</SysML:RequirementItem>
+<UML:ContainmentItem id="01086387-2391-11f0-bca2-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 925.1351791300149, 159.70484420889596)</val>
+</matrix>
+<points>
+<val>[(-8.340955351395792, -17.063830008309466), (-7.820503099424286, 55.02587612606989)]</val>
+</points>
+<head-connection>
+<ref refid="0108f5b3-2391-11f0-b94c-001999eb5b7a"/>
+</head-connection>
+</UML:ContainmentItem>
+<general:Line id="010b3760-2391-11f0-afac-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 195.77629992941831, 476.92932082047275)</val>
+</matrix>
+<points>
+<val>[(3.777572816235761, 2.3035602633179195), (3.7775728162357893, 45.00985758872919)]</val>
+</points>
+</general:Line>
+<SysML:RequirementItem id="010bcef8-2391-11f0-bce5-001999eb5b7a">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 214.51135045819336, 547.192312604241)</val>
+</matrix>
+<top-left>
+<val>(0.0, 18.233181406092513)</val>
+</top-left>
+<width>
+<val>287.20688825633334</val>
+</width>
+<height>
+<val>122.0</val>
+</height>
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<subject>
+<ref refid="c53e6499-2140-11f0-911f-001999eb5b7a"/>
+</subject>
+</SysML:RequirementItem>
+<general:Line id="010e3136-2391-11f0-8e98-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 161.48176353584856, 551.9020543375614)</val>
+</matrix>
+<points>
+<val>[(0.6218419068084273, -0.6871513618732799), (-0.4288245085273701, 161.33024716709016)]</val>
+</points>
+</general:Line>
+<general:Line id="010ecec1-2391-11f0-bdc3-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 1010.722800763525, 214.09809158297207)</val>
+</matrix>
+<points>
+<val>[(0.1738590469631447, 0.6326287519938063), (575.686280216841, 0.6326287519937637)]</val>
+</points>
+</general:Line>
+<SysML:RequirementItem id="010f61f9-2391-11f0-b249-001999eb5b7a">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 80.22519554611826, 339.2328810837906)</val>
+</matrix>
+<top-left>
+<val>(-20.0, -20.0)</val>
+</top-left>
+<width>
+<val>271.86167537231523</val>
+</width>
+<height>
+<val>140.0</val>
+</height>
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<subject>
+<ref refid="4d1cbc97-213a-11f0-a4ba-001999eb5b7a"/>
+</subject>
+</SysML:RequirementItem>
+<general:Line id="0111e367-2391-11f0-af18-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 198.3643244397701, 520.5164990310676)</val>
+</matrix>
+<points>
+<val>[(3.911211215290649, 1.4226793781342835), (-233.48703586192602, 1.4226793781342764)]</val>
+</points>
+</general:Line>
+<general:Line id="01127d57-2391-11f0-9117-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 202.27553565506074, 551.1022468888913)</val>
+</matrix>
+<points>
+<val>[(-1.9543175112658133, 1.1398773901722201), (-41.13460949097065, 1.1398773901722166)]</val>
+</points>
+</general:Line>
+<UML:CommentLineItem id="01130eb5-2391-11f0-a38a-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 936.4505446969424, 836.747298725825)</val>
+</matrix>
+<points>
+<val>[(75.6843793057958, 0.9476486450251969), (36.780289361740074, -64.65673519946608)]</val>
+</points>
+<head-connection>
+<ref refid="0113a810-2391-11f0-a68d-001999eb5b7a"/>
+</head-connection>
+<tail-connection>
+<ref refid="00eefbf2-2391-11f0-b19b-001999eb5b7a"/>
+</tail-connection>
+</UML:CommentLineItem>
+<UML:CommentItem id="0113a810-2391-11f0-a68d-001999eb5b7a">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 897.6903635797727, 837.6949473708502)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>310.0693957700081</val>
+</width>
+<height>
+<val>61.0</val>
+</height>
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<subject>
+<ref refid="0d6366ba-2143-11f0-b29c-001999eb5b7a"/>
+</subject>
+</UML:CommentItem>
+<UML:CommentLineItem id="0115571f-2391-11f0-a7d1-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 1742.4663921006727, 508.6264111432039)</val>
+</matrix>
+<points>
+<val>[(-31.865452988990683, -4.200917132870472), (-69.33074452710025, -49.393530059413195)]</val>
+</points>
+<head-connection>
+<ref refid="00f23aaa-2391-11f0-a146-001999eb5b7a"/>
+</head-connection>
+<tail-connection>
+<ref refid="01060b21-2391-11f0-bbef-001999eb5b7a"/>
+</tail-connection>
+</UML:CommentLineItem>
+<general:Line id="0115f563-2391-11f0-9925-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 198.59164481754408, 212.99018518405387)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (0.9622279281099395, 106.2426958997367)]</val>
+</points>
+</general:Line>
+<general:Line id="0116963f-2391-11f0-8ab3-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 370.5085291940256, 522.4134048685801)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (0.0, 43.01208914175348)]</val>
+</points>
+</general:Line>
+<general:Line id="01173095-2391-11f0-a1a0-001999eb5b7a">
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 160.33306385244984, 712.3713340439134)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (-143.95343947187106, 0.0)]</val>
+</points>
+</general:Line>
+<UML:Activity id="4f8f60f5-2140-11f0-87a1-001999eb5b7a">
+<name>
+<val>Activity</val>
+</name>
+<node>
+<reflist>
+<ref refid="4f8a294a-2140-11f0-817c-001999eb5b7a"/>
+</reflist>
+</node>
+</UML:Activity>
+<UML:FlowFinalNode id="4f8a294a-2140-11f0-817c-001999eb5b7a">
+<activity>
+<ref refid="4f8f60f5-2140-11f0-87a1-001999eb5b7a"/>
+</activity>
+<presentation>
+<reflist>
+<ref refid="00fd464e-2391-11f0-b226-001999eb5b7a"/>
+</reflist>
+</presentation>
+</UML:FlowFinalNode>
+<UML:FlowFinalNodeItem id="00fd464e-2391-11f0-b226-001999eb5b7a">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 189.5538727456541, 459.2328810837907)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>20.0</val>
+</width>
+<height>
+<val>20.0</val>
+</height>
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<subject>
+<ref refid="4f8a294a-2140-11f0-817c-001999eb5b7a"/>
+</subject>
+</UML:FlowFinalNodeItem>
+<SysML:Requirement id="c9d3dc58-2138-11f0-96aa-001999eb5b7a">
+<name>
+<val>Autonomous Car</val>
+</name>
+<presentation>
+<reflist>
+<ref refid="0108f5b3-2391-11f0-b94c-001999eb5b7a"/>
+</reflist>
+</presentation>
+</SysML:Requirement>
+<SysML:RequirementItem id="0108f5b3-2391-11f0-b94c-001999eb5b7a">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 866.7942237786191, 82.6410142005865)</val>
+</matrix>
+<top-left>
+<val>(-43.06153152792592, 0.0)</val>
+</top-left>
+<width>
+<val>187.16396755979497</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<diagram>
+<ref refid="e09c6769-2390-11f0-ab25-001999eb5b7a"/>
+</diagram>
+<subject>
+<ref refid="c9d3dc58-2138-11f0-96aa-001999eb5b7a"/>
+</subject>
+</SysML:RequirementItem>
 </model>
 </gaphor>
