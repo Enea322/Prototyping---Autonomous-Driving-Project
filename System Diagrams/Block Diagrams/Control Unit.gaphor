@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gaphor xmlns="https://gaphor.org/model" xmlns:Core="https://gaphor.org/modelinglanguage/Core" xmlns:SysML="https://gaphor.org/modelinglanguage/SysML" xmlns:UML="https://gaphor.org/modelinglanguage/UML" version="4" gaphor-version="3.0.0">
+<model>
+<Core:StyleSheet id="58d6989a-66f8-11ec-b4c8-0456e5e540ed"/>
+<SysML:Block id="51d70796-26d7-11f0-86f1-95d2054ad228">
+<name>
+<val>Control Unit</val>
+</name>
+<nestedClassifier>
+<reflist>
+<ref refid="8fc555a4-26d7-11f0-af89-95d2054ad228"/>
+<ref refid="4a5b3c63-26d8-11f0-905c-95d2054ad228"/>
+<ref refid="54453258-26d8-11f0-a302-95d2054ad228"/>
+<ref refid="581c9ec0-26d8-11f0-9ee1-95d2054ad228"/>
+</reflist>
+</nestedClassifier>
+<ownedDiagram>
+<reflist>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</reflist>
+</ownedDiagram>
+<presentation>
+<reflist>
+<ref refid="51d878bb-26d7-11f0-8b70-95d2054ad228"/>
+</reflist>
+</presentation>
+</SysML:Block>
+<SysML:InternalBlockDiagram id="51d7794f-26d7-11f0-a792-95d2054ad228">
+<element>
+<ref refid="51d70796-26d7-11f0-86f1-95d2054ad228"/>
+</element>
+<name>
+<val>Control Unit</val>
+</name>
+<ownedPresentation>
+<reflist>
+<ref refid="51d878bb-26d7-11f0-8b70-95d2054ad228"/>
+<ref refid="8fc59a11-26d7-11f0-a662-95d2054ad228"/>
+<ref refid="7abdeee2-26d9-11f0-8243-95d2054ad228"/>
+<ref refid="adc9815a-26d9-11f0-9981-95d2054ad228"/>
+<ref refid="4a5b8a37-26d8-11f0-ae4f-95d2054ad228"/>
+<ref refid="fcdaa24c-26d8-11f0-a6cf-95d2054ad228"/>
+<ref refid="544575ff-26d8-11f0-bee3-95d2054ad228"/>
+<ref refid="7f8cfb7b-26d9-11f0-9f4a-95d2054ad228"/>
+<ref refid="b2a6319f-26d9-11f0-903d-95d2054ad228"/>
+<ref refid="581ce098-26d8-11f0-af6c-95d2054ad228"/>
+<ref refid="8bf6e4f2-26d9-11f0-ae1c-95d2054ad228"/>
+<ref refid="d3a9350d-26d9-11f0-b4fa-95d2054ad228"/>
+<ref refid="ff66216a-26d9-11f0-99b0-95d2054ad228"/>
+<ref refid="568d5230-26da-11f0-93b2-95d2054ad228"/>
+</reflist>
+</ownedPresentation>
+</SysML:InternalBlockDiagram>
+<SysML:DiagramFrameItem id="51d878bb-26d7-11f0-8b70-95d2054ad228">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 0.0, 0.0)</val>
+</matrix>
+<top-left>
+<val>(243.53901607210636, 108.95593985364987)</val>
+</top-left>
+<width>
+<val>362.78836488027457</val>
+</width>
+<height>
+<val>371.44463945268114</val>
+</height>
+<children>
+<reflist>
+<ref refid="8fc59a11-26d7-11f0-a662-95d2054ad228"/>
+<ref refid="4a5b8a37-26d8-11f0-ae4f-95d2054ad228"/>
+<ref refid="544575ff-26d8-11f0-bee3-95d2054ad228"/>
+<ref refid="581ce098-26d8-11f0-af6c-95d2054ad228"/>
+</reflist>
+</children>
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<subject>
+<ref refid="51d70796-26d7-11f0-86f1-95d2054ad228"/>
+</subject>
+</SysML:DiagramFrameItem>
+<SysML:Block id="8fc555a4-26d7-11f0-af89-95d2054ad228">
+<name>
+<val>Arduino</val>
+</name>
+<nestingClass>
+<ref refid="51d70796-26d7-11f0-86f1-95d2054ad228"/>
+</nestingClass>
+<ownedPort>
+<reflist>
+<ref refid="7ad25edc-26d9-11f0-ac78-95d2054ad228"/>
+<ref refid="add92776-26d9-11f0-8b34-95d2054ad228"/>
+</reflist>
+</ownedPort>
+<presentation>
+<reflist>
+<ref refid="8fc59a11-26d7-11f0-a662-95d2054ad228"/>
+</reflist>
+</presentation>
+</SysML:Block>
+<SysML:BlockItem id="8fc59a11-26d7-11f0-a662-95d2054ad228">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 479.5, 242.0)</val>
+</matrix>
+<top-left>
+<val>(-26.172619047619037, 0.0)</val>
+</top-left>
+<width>
+<val>126.17261904761904</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<children>
+<reflist>
+<ref refid="7abdeee2-26d9-11f0-8243-95d2054ad228"/>
+<ref refid="adc9815a-26d9-11f0-9981-95d2054ad228"/>
+</reflist>
+</children>
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<parent>
+<ref refid="51d878bb-26d7-11f0-8b70-95d2054ad228"/>
+</parent>
+<subject>
+<ref refid="8fc555a4-26d7-11f0-af89-95d2054ad228"/>
+</subject>
+</SysML:BlockItem>
+<SysML:Block id="4a5b3c63-26d8-11f0-905c-95d2054ad228">
+<name>
+<val>Sensor Array</val>
+</name>
+<nestingClass>
+<ref refid="51d70796-26d7-11f0-86f1-95d2054ad228"/>
+</nestingClass>
+<ownedConnector>
+<reflist>
+<ref refid="582f3889-26da-11f0-98fc-95d2054ad228"/>
+</reflist>
+</ownedConnector>
+<ownedPort>
+<reflist>
+<ref refid="fced4ead-26d8-11f0-bbb4-95d2054ad228"/>
+</reflist>
+</ownedPort>
+<presentation>
+<reflist>
+<ref refid="4a5b8a37-26d8-11f0-ae4f-95d2054ad228"/>
+</reflist>
+</presentation>
+</SysML:Block>
+<SysML:BlockItem id="4a5b8a37-26d8-11f0-ae4f-95d2054ad228">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 479.5, 167.0)</val>
+</matrix>
+<top-left>
+<val>(-13.172619047619037, 0.0)</val>
+</top-left>
+<width>
+<val>113.17261904761904</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<children>
+<reflist>
+<ref refid="fcdaa24c-26d8-11f0-a6cf-95d2054ad228"/>
+</reflist>
+</children>
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<parent>
+<ref refid="51d878bb-26d7-11f0-8b70-95d2054ad228"/>
+</parent>
+<subject>
+<ref refid="4a5b3c63-26d8-11f0-905c-95d2054ad228"/>
+</subject>
+</SysML:BlockItem>
+<SysML:Block id="54453258-26d8-11f0-a302-95d2054ad228">
+<name>
+<val>Motor Controller</val>
+</name>
+<nestingClass>
+<ref refid="51d70796-26d7-11f0-86f1-95d2054ad228"/>
+</nestingClass>
+<ownedConnector>
+<reflist>
+<ref refid="009f5819-26da-11f0-aa6d-95d2054ad228"/>
+</reflist>
+</ownedConnector>
+<ownedPort>
+<reflist>
+<ref refid="7f9d48d8-26d9-11f0-8d60-95d2054ad228"/>
+<ref refid="b2b643b7-26d9-11f0-b2dc-95d2054ad228"/>
+</reflist>
+</ownedPort>
+<presentation>
+<reflist>
+<ref refid="544575ff-26d8-11f0-bee3-95d2054ad228"/>
+</reflist>
+</presentation>
+</SysML:Block>
+<SysML:BlockItem id="544575ff-26d8-11f0-bee3-95d2054ad228">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 479.5, 318.0)</val>
+</matrix>
+<top-left>
+<val>(-38.17261904761904, 0.0)</val>
+</top-left>
+<width>
+<val>138.17261904761904</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<children>
+<reflist>
+<ref refid="7f8cfb7b-26d9-11f0-9f4a-95d2054ad228"/>
+<ref refid="b2a6319f-26d9-11f0-903d-95d2054ad228"/>
+</reflist>
+</children>
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<parent>
+<ref refid="51d878bb-26d7-11f0-8b70-95d2054ad228"/>
+</parent>
+<subject>
+<ref refid="54453258-26d8-11f0-a302-95d2054ad228"/>
+</subject>
+</SysML:BlockItem>
+<SysML:Block id="581c9ec0-26d8-11f0-9ee1-95d2054ad228">
+<name>
+<val>Propulsion System</val>
+</name>
+<nestingClass>
+<ref refid="51d70796-26d7-11f0-86f1-95d2054ad228"/>
+</nestingClass>
+<ownedConnector>
+<reflist>
+<ref refid="d557a458-26d9-11f0-8359-95d2054ad228"/>
+</reflist>
+</ownedConnector>
+<ownedPort>
+<reflist>
+<ref refid="8c13343b-26d9-11f0-87f6-95d2054ad228"/>
+</reflist>
+</ownedPort>
+<presentation>
+<reflist>
+<ref refid="581ce098-26d8-11f0-af6c-95d2054ad228"/>
+</reflist>
+</presentation>
+</SysML:Block>
+<SysML:BlockItem id="581ce098-26d8-11f0-af6c-95d2054ad228">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 479.5, 396.0)</val>
+</matrix>
+<top-left>
+<val>(-54.17261904761904, -0.8710495468703812)</val>
+</top-left>
+<width>
+<val>154.17261904761904</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<children>
+<reflist>
+<ref refid="8bf6e4f2-26d9-11f0-ae1c-95d2054ad228"/>
+</reflist>
+</children>
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<parent>
+<ref refid="51d878bb-26d7-11f0-8b70-95d2054ad228"/>
+</parent>
+<subject>
+<ref refid="581c9ec0-26d8-11f0-9ee1-95d2054ad228"/>
+</subject>
+</SysML:BlockItem>
+<SysML:ProxyPortItem id="fcdaa24c-26d8-11f0-a6cf-95d2054ad228">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, -1.1726190476190368, 28.12895045312962)</val>
+</matrix>
+<point>
+<val>(-12.0, 1.8710495468703812)</val>
+</point>
+<connection>
+<ref refid="4a5b8a37-26d8-11f0-ae4f-95d2054ad228"/>
+</connection>
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<parent>
+<ref refid="4a5b8a37-26d8-11f0-ae4f-95d2054ad228"/>
+</parent>
+<subject>
+<ref refid="fced4ead-26d8-11f0-bbb4-95d2054ad228"/>
+</subject>
+</SysML:ProxyPortItem>
+<SysML:ProxyPort id="fced4ead-26d8-11f0-bbb4-95d2054ad228">
+<encapsulatedClassifier>
+<ref refid="4a5b3c63-26d8-11f0-905c-95d2054ad228"/>
+</encapsulatedClassifier>
+<end>
+<reflist>
+<ref refid="582f7967-26da-11f0-b316-95d2054ad228"/>
+</reflist>
+</end>
+<presentation>
+<reflist>
+<ref refid="fcdaa24c-26d8-11f0-a6cf-95d2054ad228"/>
+</reflist>
+</presentation>
+</SysML:ProxyPort>
+<SysML:ProxyPortItem id="7abdeee2-26d9-11f0-8243-95d2054ad228">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, -3.172619047619037, 27.12895045312962)</val>
+</matrix>
+<point>
+<val>(-23.0, -11.0)</val>
+</point>
+<connection>
+<ref refid="8fc59a11-26d7-11f0-a662-95d2054ad228"/>
+</connection>
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<parent>
+<ref refid="8fc59a11-26d7-11f0-a662-95d2054ad228"/>
+</parent>
+<subject>
+<ref refid="7ad25edc-26d9-11f0-ac78-95d2054ad228"/>
+</subject>
+</SysML:ProxyPortItem>
+<SysML:ProxyPort id="7ad25edc-26d9-11f0-ac78-95d2054ad228">
+<encapsulatedClassifier>
+<ref refid="8fc555a4-26d7-11f0-af89-95d2054ad228"/>
+</encapsulatedClassifier>
+<end>
+<reflist>
+<ref refid="582f7df2-26da-11f0-9b53-95d2054ad228"/>
+</reflist>
+</end>
+<presentation>
+<reflist>
+<ref refid="7abdeee2-26d9-11f0-8243-95d2054ad228"/>
+</reflist>
+</presentation>
+</SysML:ProxyPort>
+<SysML:ProxyPortItem id="7f8cfb7b-26d9-11f0-9f4a-95d2054ad228">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, -5.172619047619037, 40.12895045312962)</val>
+</matrix>
+<point>
+<val>(-33.0, -24.0)</val>
+</point>
+<connection>
+<ref refid="544575ff-26d8-11f0-bee3-95d2054ad228"/>
+</connection>
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<parent>
+<ref refid="544575ff-26d8-11f0-bee3-95d2054ad228"/>
+</parent>
+<subject>
+<ref refid="7f9d48d8-26d9-11f0-8d60-95d2054ad228"/>
+</subject>
+</SysML:ProxyPortItem>
+<SysML:ProxyPort id="7f9d48d8-26d9-11f0-8d60-95d2054ad228">
+<encapsulatedClassifier>
+<ref refid="54453258-26d8-11f0-a302-95d2054ad228"/>
+</encapsulatedClassifier>
+<end>
+<reflist>
+<ref refid="009f985c-26da-11f0-9ba0-95d2054ad228"/>
+</reflist>
+</end>
+<presentation>
+<reflist>
+<ref refid="7f8cfb7b-26d9-11f0-9f4a-95d2054ad228"/>
+</reflist>
+</presentation>
+</SysML:ProxyPort>
+<SysML:ProxyPortItem id="8bf6e4f2-26d9-11f0-ae1c-95d2054ad228">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, -52.17261904761904, 38.12895045312962)</val>
+</matrix>
+<point>
+<val>(-2.0, -9.0)</val>
+</point>
+<connection>
+<ref refid="581ce098-26d8-11f0-af6c-95d2054ad228"/>
+</connection>
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<parent>
+<ref refid="581ce098-26d8-11f0-af6c-95d2054ad228"/>
+</parent>
+<subject>
+<ref refid="8c13343b-26d9-11f0-87f6-95d2054ad228"/>
+</subject>
+</SysML:ProxyPortItem>
+<SysML:ProxyPort id="8c13343b-26d9-11f0-87f6-95d2054ad228">
+<encapsulatedClassifier>
+<ref refid="581c9ec0-26d8-11f0-9ee1-95d2054ad228"/>
+</encapsulatedClassifier>
+<end>
+<reflist>
+<ref refid="d557ec2b-26d9-11f0-a6c8-95d2054ad228"/>
+</reflist>
+</end>
+<presentation>
+<reflist>
+<ref refid="8bf6e4f2-26d9-11f0-ae1c-95d2054ad228"/>
+</reflist>
+</presentation>
+</SysML:ProxyPort>
+<SysML:ProxyPortItem id="adc9815a-26d9-11f0-9981-95d2054ad228">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, -28.172619047619037, 46.12895045312962)</val>
+</matrix>
+<point>
+<val>(2.0, -4.0)</val>
+</point>
+<connection>
+<ref refid="8fc59a11-26d7-11f0-a662-95d2054ad228"/>
+</connection>
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<parent>
+<ref refid="8fc59a11-26d7-11f0-a662-95d2054ad228"/>
+</parent>
+<subject>
+<ref refid="add92776-26d9-11f0-8b34-95d2054ad228"/>
+</subject>
+</SysML:ProxyPortItem>
+<SysML:ProxyPort id="add92776-26d9-11f0-8b34-95d2054ad228">
+<encapsulatedClassifier>
+<ref refid="8fc555a4-26d7-11f0-af89-95d2054ad228"/>
+</encapsulatedClassifier>
+<end>
+<reflist>
+<ref refid="009f9ccc-26da-11f0-ba4e-95d2054ad228"/>
+</reflist>
+</end>
+<presentation>
+<reflist>
+<ref refid="adc9815a-26d9-11f0-9981-95d2054ad228"/>
+</reflist>
+</presentation>
+</SysML:ProxyPort>
+<SysML:ProxyPortItem id="b2a6319f-26d9-11f0-903d-95d2054ad228">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, -38.17261904761904, 45.12895045312962)</val>
+</matrix>
+<point>
+<val>(0.0, -3.0)</val>
+</point>
+<connection>
+<ref refid="544575ff-26d8-11f0-bee3-95d2054ad228"/>
+</connection>
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<parent>
+<ref refid="544575ff-26d8-11f0-bee3-95d2054ad228"/>
+</parent>
+<subject>
+<ref refid="b2b643b7-26d9-11f0-b2dc-95d2054ad228"/>
+</subject>
+</SysML:ProxyPortItem>
+<SysML:ProxyPort id="b2b643b7-26d9-11f0-b2dc-95d2054ad228">
+<encapsulatedClassifier>
+<ref refid="54453258-26d8-11f0-a302-95d2054ad228"/>
+</encapsulatedClassifier>
+<end>
+<reflist>
+<ref refid="d557f24f-26d9-11f0-9d3c-95d2054ad228"/>
+</reflist>
+</end>
+<presentation>
+<reflist>
+<ref refid="b2a6319f-26d9-11f0-903d-95d2054ad228"/>
+</reflist>
+</presentation>
+</SysML:ProxyPort>
+<UML:ConnectorItem id="d3a9350d-26d9-11f0-b4fa-95d2054ad228">
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<subject>
+<ref refid="d557a458-26d9-11f0-8359-95d2054ad228"/>
+</subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 416.8183084568866, 424.7388600039077)</val>
+</matrix>
+<points>
+<val>[(0.5090724954943653, 0.0), (-137.67998296126507, 0.3900904492219297), (-137.67998296126507, -63.37650009328078), (16.509072495494365, -63.376500093280754)]</val>
+</points>
+<head-connection>
+<ref refid="8bf6e4f2-26d9-11f0-ae1c-95d2054ad228"/>
+</head-connection>
+<tail-connection>
+<ref refid="b2a6319f-26d9-11f0-903d-95d2054ad228"/>
+</tail-connection>
+</UML:ConnectorItem>
+<UML:Connector id="d557a458-26d9-11f0-8359-95d2054ad228">
+<end>
+<reflist>
+<ref refid="d557ec2b-26d9-11f0-a6c8-95d2054ad228"/>
+<ref refid="d557f24f-26d9-11f0-9d3c-95d2054ad228"/>
+</reflist>
+</end>
+<informationFlow>
+<reflist>
+<ref refid="e0b5b663-26d9-11f0-b22a-95d2054ad228"/>
+</reflist>
+</informationFlow>
+<presentation>
+<reflist>
+<ref refid="d3a9350d-26d9-11f0-b4fa-95d2054ad228"/>
+</reflist>
+</presentation>
+<structuredClassifier>
+<ref refid="581c9ec0-26d8-11f0-9ee1-95d2054ad228"/>
+</structuredClassifier>
+</UML:Connector>
+<UML:ConnectorEnd id="d557ec2b-26d9-11f0-a6c8-95d2054ad228">
+<role>
+<ref refid="8c13343b-26d9-11f0-87f6-95d2054ad228"/>
+</role>
+</UML:ConnectorEnd>
+<UML:ConnectorEnd id="d557f24f-26d9-11f0-9d3c-95d2054ad228">
+<role>
+<ref refid="b2b643b7-26d9-11f0-b2dc-95d2054ad228"/>
+</role>
+</UML:ConnectorEnd>
+<SysML:ItemFlow id="e0b5b663-26d9-11f0-b22a-95d2054ad228">
+<informationSource>
+<ref refid="b2b643b7-26d9-11f0-b2dc-95d2054ad228"/>
+</informationSource>
+<informationTarget>
+<ref refid="8c13343b-26d9-11f0-87f6-95d2054ad228"/>
+</informationTarget>
+<itemProperty>
+<ref refid="e0b631fb-26d9-11f0-8d38-95d2054ad228"/>
+</itemProperty>
+<realizingConnector>
+<ref refid="d557a458-26d9-11f0-8359-95d2054ad228"/>
+</realizingConnector>
+</SysML:ItemFlow>
+<UML:Property id="e0b631fb-26d9-11f0-8d38-95d2054ad228">
+<itemFlow>
+<ref refid="e0b5b663-26d9-11f0-b22a-95d2054ad228"/>
+</itemFlow>
+<name>
+<val>Electric Signal</val>
+</name>
+</UML:Property>
+<UML:ConnectorItem id="ff66216a-26d9-11f0-99b0-95d2054ad228">
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<subject>
+<ref refid="009f5819-26da-11f0-aa6d-95d2054ad228"/>
+</subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 432.99024296344794, 335.54649977472377)</val>
+</matrix>
+<points>
+<val>[(0.3371379889330228, 0.0), (-153.8519174678264, 0.0), (-153.8519174678264, -50.70120007462461), (12.337137988933023, -50.70120007462461)]</val>
+</points>
+<head-connection>
+<ref refid="7f8cfb7b-26d9-11f0-9f4a-95d2054ad228"/>
+</head-connection>
+<tail-connection>
+<ref refid="adc9815a-26d9-11f0-9981-95d2054ad228"/>
+</tail-connection>
+</UML:ConnectorItem>
+<UML:Connector id="009f5819-26da-11f0-aa6d-95d2054ad228">
+<end>
+<reflist>
+<ref refid="009f985c-26da-11f0-9ba0-95d2054ad228"/>
+<ref refid="009f9ccc-26da-11f0-ba4e-95d2054ad228"/>
+</reflist>
+</end>
+<informationFlow>
+<reflist>
+<ref refid="1440429d-26da-11f0-be7e-95d2054ad228"/>
+</reflist>
+</informationFlow>
+<presentation>
+<reflist>
+<ref refid="ff66216a-26d9-11f0-99b0-95d2054ad228"/>
+</reflist>
+</presentation>
+<structuredClassifier>
+<ref refid="54453258-26d8-11f0-a302-95d2054ad228"/>
+</structuredClassifier>
+</UML:Connector>
+<UML:ConnectorEnd id="009f985c-26da-11f0-9ba0-95d2054ad228">
+<role>
+<ref refid="7f9d48d8-26d9-11f0-8d60-95d2054ad228"/>
+</role>
+</UML:ConnectorEnd>
+<UML:ConnectorEnd id="009f9ccc-26da-11f0-ba4e-95d2054ad228">
+<role>
+<ref refid="add92776-26d9-11f0-8b34-95d2054ad228"/>
+</role>
+</UML:ConnectorEnd>
+<SysML:ItemFlow id="1440429d-26da-11f0-be7e-95d2054ad228">
+<informationSource>
+<ref refid="add92776-26d9-11f0-8b34-95d2054ad228"/>
+</informationSource>
+<informationTarget>
+<ref refid="7f9d48d8-26d9-11f0-8d60-95d2054ad228"/>
+</informationTarget>
+<itemProperty>
+<ref refid="1440afb8-26da-11f0-9224-95d2054ad228"/>
+</itemProperty>
+<realizingConnector>
+<ref refid="009f5819-26da-11f0-aa6d-95d2054ad228"/>
+</realizingConnector>
+</SysML:ItemFlow>
+<UML:Property id="1440afb8-26da-11f0-9224-95d2054ad228">
+<itemFlow>
+<ref refid="1440429d-26da-11f0-be7e-95d2054ad228"/>
+</itemFlow>
+<name>
+<val>Directional Data</val>
+</name>
+</UML:Property>
+<UML:ConnectorItem id="568d5230-26da-11f0-93b2-95d2054ad228">
+<diagram>
+<ref refid="51d7794f-26d7-11f0-a792-95d2054ad228"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<orthogonal>
+<val>0</val>
+</orthogonal>
+<subject>
+<ref refid="582f3889-26da-11f0-98fc-95d2054ad228"/>
+</subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 457.46668437878395, 196.5552788804942)</val>
+</matrix>
+<points>
+<val>[(0.8606965735970107, 0.44472111950575766), (-178.32835888316245, 0.44472111950577187), (-178.32835888316245, 60.754024227351934), (-12.13930342640299, 60.754024227351934)]</val>
+</points>
+<head-connection>
+<ref refid="fcdaa24c-26d8-11f0-a6cf-95d2054ad228"/>
+</head-connection>
+<tail-connection>
+<ref refid="7abdeee2-26d9-11f0-8243-95d2054ad228"/>
+</tail-connection>
+</UML:ConnectorItem>
+<UML:Connector id="582f3889-26da-11f0-98fc-95d2054ad228">
+<end>
+<reflist>
+<ref refid="582f7967-26da-11f0-b316-95d2054ad228"/>
+<ref refid="582f7df2-26da-11f0-9b53-95d2054ad228"/>
+</reflist>
+</end>
+<informationFlow>
+<reflist>
+<ref refid="69279e83-26da-11f0-97a7-95d2054ad228"/>
+</reflist>
+</informationFlow>
+<presentation>
+<reflist>
+<ref refid="568d5230-26da-11f0-93b2-95d2054ad228"/>
+</reflist>
+</presentation>
+<structuredClassifier>
+<ref refid="4a5b3c63-26d8-11f0-905c-95d2054ad228"/>
+</structuredClassifier>
+</UML:Connector>
+<UML:ConnectorEnd id="582f7967-26da-11f0-b316-95d2054ad228">
+<role>
+<ref refid="fced4ead-26d8-11f0-bbb4-95d2054ad228"/>
+</role>
+</UML:ConnectorEnd>
+<UML:ConnectorEnd id="582f7df2-26da-11f0-9b53-95d2054ad228">
+<role>
+<ref refid="7ad25edc-26d9-11f0-ac78-95d2054ad228"/>
+</role>
+</UML:ConnectorEnd>
+<SysML:ItemFlow id="69279e83-26da-11f0-97a7-95d2054ad228">
+<informationSource>
+<ref refid="fced4ead-26d8-11f0-bbb4-95d2054ad228"/>
+</informationSource>
+<informationTarget>
+<ref refid="7ad25edc-26d9-11f0-ac78-95d2054ad228"/>
+</informationTarget>
+<itemProperty>
+<ref refid="69281354-26da-11f0-bbd2-95d2054ad228"/>
+</itemProperty>
+<realizingConnector>
+<ref refid="582f3889-26da-11f0-98fc-95d2054ad228"/>
+</realizingConnector>
+</SysML:ItemFlow>
+<UML:Property id="69281354-26da-11f0-bbd2-95d2054ad228">
+<itemFlow>
+<ref refid="69279e83-26da-11f0-97a7-95d2054ad228"/>
+</itemFlow>
+<name>
+<val>Sensor Data</val>
+</name>
+</UML:Property>
+</model>
+</gaphor>
