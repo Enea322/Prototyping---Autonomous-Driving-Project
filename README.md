@@ -11,4 +11,4 @@ This is a small-scale autonomous car project using the Arduino Uno. The car foll
 - Recognizes specific colors to make decisions  
 - Optimizes speed based on track conditions
 
- This repository belongs to **Team B3**.
+ This repository belongs to **Team B3**. 
