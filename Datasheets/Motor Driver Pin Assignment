@@ -1,0 +1,6 @@
+The "IN" Pins on the motor controller have the following functions:
+
+IN_1 = forward, left
+IN_2 = backward, left
+IN_3 = backward, right
+IN_4 = forward, right
