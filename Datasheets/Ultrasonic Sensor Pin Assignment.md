@@ -6,8 +6,8 @@
 
 ### Pins:
 
-VCC - 5V
-GND - Ground
-Trig - Input: send 10 μs HIGH pulse to start measurement
-Echo - Output: goes HIGH while waiting for reflected signal (duration = distance)
+- VCC - 5V
+- GND - Ground
+- Trig - Input: send 10 μs HIGH pulse to start measurement
+- Echo - Output: goes HIGH while waiting for reflected signal (duration = distance)
 *Both Trig and Echo should be connected to digital pins (0–13) on the Arduino.*
