@@ -1,0 +1,29 @@
+﻿IR Line Tracker (SEN-KY033LT)
+* Voltage: 3V – 5V
+
+* Current:
+   * ~7 mA @ 3V
+   * ~13 mA @ 5V
+
+      * Detection Distance: 1 mm – 25 mm
+      * Operating Temperature: 0°C to 50°C
+      * Dimensions: 42 x 11 x 8 mm
+      * Function: Detects line reflectivity and gives a digital output (0/1) based on surface reflection
+      * Sensitivity: Adjustable via onboard potentiometer
+      * Typical Use: Line following
+IR Sensor Pin Assignments:
+IR Sensor
+	VCC
+	GND
+	OUT
+	Arduino Pin
+	Left
+	5V
+	GND
+	OUT
+	D7
+	Right
+	5V
+	GND
+	OUT
+	D8
