@@ -51,8 +51,7 @@ Serial.println("------------------------------");
     redAmbient = redSum/10;
     ambientChecked = true;
   }
-
-for(t=0,redFrequency=0,redAvg=0;t<=10;t++){
+for(t=0,redFrequency=0,redAvg=0,redSum=0;t<=10;t++){
 /*Determination of the photodiode type during measurement
 S2/S3
 LOW/LOW=RED, LOW/HIGH=BLUE,
