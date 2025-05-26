@@ -14,8 +14,10 @@ int redMax = 1;
 int redColor = 0;
 int redFrequency = 0;
 int redAvg = 0;
+int redAmbient = 0;
 int redEdgeTime = 0;
 float redSum = 0;
+bool ambientChecked = false;
 bool red = false;
 
 void setup()
@@ -37,6 +39,19 @@ Serial.begin(9600);
 //Initialization of the loop
 void loop() {
 Serial.println("------------------------------");
+  if(ambientChecked == false){
+    for(t=0,redFrequency=0;t<=10;t++){
+      digitalWrite(S2, LOW);
+      digitalWrite(S3, LOW);
+      /*Frequency measurement of the red color*/
+      float(redEdgeTime) = pulseIn(sensorOut, HIGH) + pulseIn(sensorOut, LOW);
+      float(redFrequency) = (1 / (redEdgeTime / 1000000));
+      redSum += redFrequency;
+    }
+    redAmbient = redSum/10;
+    ambientChecked = true;
+  }
+
 for(t=0,redFrequency=0;t<=10;t++){
 /*Determination of the photodiode type during measurement
 S2/S3
@@ -50,7 +65,7 @@ float(redFrequency) = (1 / (redEdgeTime / 1000000));
 redSum += redFrequency;
 }
 redAvg = redSum/10;
-  if(redAvg > 700){
+  if(redAvg > redAmbient){
     red = true;
   }
   else{
