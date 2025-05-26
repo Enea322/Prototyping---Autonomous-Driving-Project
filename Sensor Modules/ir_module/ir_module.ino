@@ -1,6 +1,6 @@
 //IR Sensor Pin Definitions
-#define IR_LEFT_PIN 7    // Left IR sensor OUT
-#define IR_RIGHT_PIN 8   // Right IR sensor OUT
+#define IR_LEFT_PIN A0    // Left IR sensor OUT
+#define IR_RIGHT_PIN A1   // Right IR sensor OUT
 
 //IR Sensor Initialization
 void setup() {
