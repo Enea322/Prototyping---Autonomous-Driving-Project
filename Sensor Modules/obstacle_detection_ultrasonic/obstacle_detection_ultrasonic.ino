@@ -10,13 +10,11 @@ Ultrasonic Sensor code v1, where the ultrasonic sensor decides when to stop/spin
 #define trigPin 13
 #define echoPin 12
 
-#define IN1 7
-#define IN2 6
-#define ENA 5
+#define IN1 9
+#define IN2 8
 
-#define IN3 4
-#define IN4 3
-#define ENB 2
+#define IN3 7
+#define IN4 5
 
 void setup() {
   Serial.begin(9600);
@@ -25,11 +23,9 @@ void setup() {
 
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
-  pinMode(ENA, OUTPUT);
 
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);
-  pinMode(ENB, OUTPUT);
 }
 
 long readDistance() {
@@ -43,16 +39,14 @@ long readDistance() {
 void moveForward() {
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
-  analogWrite(ENA, 100);  // Speed 0-255
 
-  digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);
-  analogWrite(ENB, 100);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
 }
 
 void stopMotors() {
-  analogWrite(ENA, 0);
-  analogWrite(ENB, 0);
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN4, LOW);
 }
 
 void loop() {
