@@ -14,17 +14,16 @@ void loop() {
   int left = digitalRead(IR_LEFT_PIN);
   int right = digitalRead(IR_RIGHT_PIN);
   
-  if (left == 0 || right == 0){
+  if (left == 1 && right == 1){
     Serial.println("Bothe sensor under line");
   }
-  else if (left == 0 || right == 1){
+  else if (left == 1 && right == 0){
     Serial.println("Left sensor under line");
   }
-  else if (left == 1 || right == 0){
+  else if (left == 0 && right == 1){
     Serial.println("Right sensor under line");
   }
-  else {
+  else if (left == 0 && right == 0) {
     Serial.println("Line is not detected");
   } 
-
 }
