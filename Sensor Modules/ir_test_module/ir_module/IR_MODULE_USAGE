@@ -1,0 +1,22 @@
+IR Sensor Module Usage Instructions
+===================================
+
+- Call initIR() once inside the setup() function to initialize the IR sensors.
+
+- Use the following functions in the main control loop or state machine logic:
+
+  - isLineDetected()
+    → Returns true if either the left or right IR sensor detects a black line.
+
+  - isEndOfLine()
+    → Returns true if both IR sensors are off the line (white surface).
+
+This module assumes:
+- Black line on a white surface.
+- IR sensors return LOW when on the black line.
+
+Pins Used:
+- D7 → Left IR sensor OUT
+- D8 → Right IR sensor OUT
+
+No Serial communication or delay is used. The functions are modular and ready to integrate into the main system.
