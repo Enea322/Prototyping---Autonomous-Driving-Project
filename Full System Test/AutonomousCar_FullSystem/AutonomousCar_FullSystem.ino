@@ -1,6 +1,3 @@
-// Combined Arduino Code v1
-// Includes: Ultrasonic obstacle detection, servo motor, IR line detection, and color sensor
-
 #include <Servo.h>
 
 // --- Pin Definitions ---
@@ -12,16 +9,16 @@
 // Motor Driver
 #define IN1 9
 #define IN2 8
-#define ENA 6
+#define ENA 3
 #define IN3 7
 #define IN4 5
-#define ENB 4
+#define ENB 2
 
 // Servo Motor
 #define servoPin 11
 Servo servo;
 int angle = 0;
-int step = 5;
+int step = 5; // degrees per step
 
 // IR Sensors
 #define IR_LEFT_PIN A0
@@ -34,30 +31,34 @@ int step = 5;
 #define S3 A5
 #define sensorOut 10
 
-// Color Sensor Calibration Values (adjust as needed)
-int redMin = 0, redMax = 1;
-int greenMin = 0, greenMax = 1;
-int redColor = 0, greenColor = 0;
+// Color Sensor Variables
+int t = 0;
+int redMin = 0;
+int redMax = 1;
+int redColor = 0;
+float redFrequency = 0;
+float redAvg = 0;
+int redAmbient = 0;
+float redEdgeTime = 0;
+float redSum = 0;
+bool ambientChecked = false;
+bool red = false;
 
-enum Color { RED, GREEN, NONE };
-Color currentColor = NONE;
-
-// --- Setup ---
 void setup() {
   Serial.begin(9600);
 
-  // Ultrasonic pins
+  // Ultrasonic
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 
-  // Motor pins
+  // Motors
   pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT); pinMode(ENA, OUTPUT);
   pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT); pinMode(ENB, OUTPUT);
 
   // Servo
   servo.attach(servoPin);
 
-  // IR Sensors
+  // IR
   pinMode(IR_LEFT_PIN, INPUT);
   pinMode(IR_RIGHT_PIN, INPUT);
 
@@ -65,25 +66,25 @@ void setup() {
   pinMode(S0, OUTPUT); pinMode(S1, OUTPUT);
   pinMode(S2, OUTPUT); pinMode(S3, OUTPUT);
   pinMode(sensorOut, INPUT);
-  digitalWrite(S0, HIGH);
-  digitalWrite(S1, HIGH);
+  digitalWrite(S0, LOW);
+  digitalWrite(S1, HIGH); // 2% scaling
 }
-
-// --- Functions ---
 
 long readDistance() {
   digitalWrite(trigPin, LOW); delayMicroseconds(2);
   digitalWrite(trigPin, HIGH); delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
-  return pulseIn(echoPin, HIGH) * 0.034 / 2;
+  long duration = pulseIn(echoPin, HIGH, 30000);
+  return duration * 0.034 / 2;
 }
 
 void moveForward() {
-  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); analogWrite(ENA, 100);  // Speed 0-255
-  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); analogWrite(ENB, 100);
+  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); analogWrite(ENA, 50);
+  digitalWrite(IN3, LOW); digitalWrite(IN4, HIGH); analogWrite(ENB, 50);
 }
 
 void stopMotors() {
+  digitalWrite(IN1, LOW); digitalWrite(IN3, LOW);
   analogWrite(ENA, 0); analogWrite(ENB, 0);
 }
 
@@ -98,55 +99,54 @@ void scanWithServo() {
   }
 }
 
-void readColorSensor() {
-  digitalWrite(S2, LOW); digitalWrite(S3, LOW);
-  float redEdgeTime = pulseIn(sensorOut, HIGH) + pulseIn(sensorOut, LOW);
-  float redFreq = 1 / (redEdgeTime / 1000000);
-  redColor = map(redFreq, redMax, redMin, 255, 0);
-  redColor = constrain(redColor, 0, 255);
-
-  digitalWrite(S2, HIGH); digitalWrite(S3, HIGH);
-  float greenEdgeTime = pulseIn(sensorOut, HIGH) + pulseIn(sensorOut, LOW);
-  float greenFreq = 1 / (greenEdgeTime / 1000000);
-  greenColor = map(greenFreq, greenMax, greenMin, 255, 0);
-  greenColor = constrain(greenColor, 0, 255);
-
-  if (redColor > greenColor) currentColor = RED;
-  else if (greenColor > redColor) currentColor = GREEN;
-  else currentColor = NONE;
-}
-
-bool isLineDetected() {
-  int left = digitalRead(IR_LEFT_PIN);
-  int right = digitalRead(IR_RIGHT_PIN);
-  return (left == LOW || right == LOW);  // Detects black line
-}
-
-bool isEndOfLine() {
-  int left = digitalRead(IR_LEFT_PIN);
-  int right = digitalRead(IR_RIGHT_PIN);
-  return (left == HIGH && right == HIGH);  // White surface
-}
-
-// --- Loop ---
 void loop() {
   long distance = readDistance();
-  scanWithServo();
-  readColorSensor();
+  Serial.print("Distance: "); Serial.print(distance); Serial.println(" cm");
 
-  Serial.print("Distance: "); Serial.println(distance);
-  Serial.print("Color: ");
-  if (currentColor == RED) Serial.println("RED");
-  else if (currentColor == GREEN) Serial.println("GREEN");
-  else Serial.println("NONE");
-
-  Serial.print("Line: ");
-  if (isLineDetected()) Serial.println("Detected");
-  else if (isEndOfLine()) Serial.println("End of Line");
-  else Serial.println("No line");
-
-  if (distance <= 10) stopMotors();
+  if (distance > 0 && distance <= 10) stopMotors();
   else moveForward();
 
-  delay(100);
+  int left = digitalRead(IR_LEFT_PIN);
+  int right = digitalRead(IR_RIGHT_PIN);
+  
+  if (left == 1 && right == 1) Serial.println("Both sensors on line");
+  else if (left == 1 && right == 0) Serial.println("Left sensor on line");
+  else if (left == 0 && right == 1) Serial.println("Right sensor on line");
+  else if (left == 0 && right == 0) {
+    Serial.println("Line not detected");
+
+    Serial.println("------------------------------");
+
+    if (!ambientChecked) {
+      for (t = 0, redSum = 0; t <= 10; t++) {
+        digitalWrite(S2, LOW); digitalWrite(S3, LOW);
+        redEdgeTime = pulseIn(sensorOut, HIGH) + pulseIn(sensorOut, LOW);
+        redFrequency = 1.0 / (redEdgeTime / 1000000.0);
+        redSum += redFrequency;
+      }
+      redAmbient = redSum / 10;
+      ambientChecked = true;
+    }
+
+    for (t = 0, redSum = 0; t <= 10; t++) {
+      digitalWrite(S2, LOW); digitalWrite(S3, LOW);
+      redEdgeTime = pulseIn(sensorOut, HIGH) + pulseIn(sensorOut, LOW);
+      redFrequency = 1.0 / (redEdgeTime / 1000000.0);
+      redSum += redFrequency;
+    }
+    redAvg = redSum / 10;
+
+    red = (redAvg > redAmbient);
+
+    Serial.print("Average red detected: ");
+    Serial.println(redAvg);
+    Serial.println("------------------------------");
+    delay(100);
+
+    if (red) Serial.println("Red detected");
+    else Serial.println("Green detected");
+
+    Serial.println("------------------------------");
+    delay(1000);
+  }
 }
