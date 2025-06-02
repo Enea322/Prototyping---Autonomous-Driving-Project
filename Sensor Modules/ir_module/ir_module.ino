@@ -1,83 +1,82 @@
-// IR Sensor Pins
-#define IR_LEFT A0    
-#define IR_RIGHT A1   
+#define IR_SENSOR_RIGHT A0
+#define IR_SENSOR_LEFT A1
+#define MOTOR_SPEED 80
 
-// Motor Driver Pins
-// Left Motor
-#define IN1 9   
-#define IN2 8  
-#define ENA 3
-// Right Motor
-#define IN3 7  
-#define IN4 5  
-#define ENB 2  
+//Right motor
+int enableRightMotor = 2;
+int rightMotorPin1 = 7;
+int rightMotorPin2 = 5;
 
-void setup() {
-  // Set IR pins
-  pinMode(IR_LEFT, INPUT);
-  pinMode(IR_RIGHT, INPUT);
+//Left motor
+int enableLeftMotor = 3;
+int leftMotorPin1 = 9;
+int leftMotorPin2 = 8;
 
-  // Set motor control pins
-  pinMode(IN1, OUTPUT);
-  pinMode(IN2, OUTPUT);
-  pinMode(ENA, OUTPUT);
-  pinMode(IN3, OUTPUT);
-  pinMode(IN4, OUTPUT);
-  pinMode(ENB, OUTPUT);
+void setup()
+{
+  pinMode(enableRightMotor, OUTPUT);
+  pinMode(rightMotorPin1, OUTPUT);
+  pinMode(rightMotorPin2, OUTPUT);
+  
+  pinMode(enableLeftMotor, OUTPUT);
+  pinMode(leftMotorPin1, OUTPUT);
+  pinMode(leftMotorPin2, OUTPUT);
 
-  Serial.begin(9600);
-  delay(500);
+  pinMode(IR_SENSOR_RIGHT, INPUT);
+  pinMode(IR_SENSOR_LEFT, INPUT);
+  rotateMotor(0, 0);
 }
 
-// Movement Functions
-void moveForward() {
-  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); analogWrite(ENA, 100);
-  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); analogWrite(ENB, 100);
+void loop()
+{
+  int rightIRSensorValue = digitalRead(IR_SENSOR_RIGHT);
+  int leftIRSensorValue = digitalRead(IR_SENSOR_LEFT);
+
+  // Line following logic
+  if (rightIRSensorValue == LOW && leftIRSensorValue == LOW) {
+    rotateMotor(MOTOR_SPEED, MOTOR_SPEED);  // Go straight
+  }
+  else if (rightIRSensorValue == HIGH && leftIRSensorValue == LOW) {
+    rotateMotor(-MOTOR_SPEED, MOTOR_SPEED);  // Turn right
+  }
+  else if (rightIRSensorValue == LOW && leftIRSensorValue == HIGH) {
+    rotateMotor(MOTOR_SPEED, -MOTOR_SPEED);  // Turn left
+  }
+  else {
+    rotateMotor(0, 0);  // Stop
+  }
 }
 
-void turnLeft() {
-  digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); analogWrite(ENA, 0);     // Stop left motor
-  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); analogWrite(ENB, 100);  // Move right motor forward
-}
-
-void turnRight() {
-  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); analogWrite(ENA, 100);  // Move left motor forward
-  digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); analogWrite(ENB, 0);     // Stop right motor
-}
-
-void stopMotors() {
-  digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); analogWrite(ENA, 0);
-  digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); analogWrite(ENB, 0);
-}
-
-void loop() {
-  int left = digitalRead(IR_LEFT);
-  int right = digitalRead(IR_RIGHT);
-
-  // Combining readings into a 2-bit code for better logical switch case
-  int state = (left << 1) | right;
-
-  switch(state) {
-    case 0b11: // 3: both sensors on the line
-      Serial.println("move forward");
-      moveForward();
-      break;
-
-    case 0b10: // 2: left on line, right not
-      Serial.println("turning left for Right to find the line");
-      turnLeft();
-      break;
-
-    case 0b01: // 1: right on line, left not
-      Serial.println("turning right for Left to find the line");
-      turnRight());
-      break;
-
-    case 0b00: // 0: both off line
-      Serial.println("No line detected");
-      stopMotors();
-      break;
+void rotateMotor(int rightMotorSpeed, int leftMotorSpeed)
+{
+  // Right motor control
+  if (rightMotorSpeed < 0) {
+    digitalWrite(rightMotorPin1, HIGH);
+    digitalWrite(rightMotorPin2, LOW);
+  }
+  else if (rightMotorSpeed > 0) {
+    digitalWrite(rightMotorPin1, LOW);
+    digitalWrite(rightMotorPin2, HIGH);
+  }
+  else {
+    digitalWrite(rightMotorPin1, HIGH);
+    digitalWrite(rightMotorPin2, HIGH);
   }
 
-  delay(100); // avoiding rapid switching
+  // Left motor control
+  if (leftMotorSpeed < 0) {
+    digitalWrite(leftMotorPin1, LOW);
+    digitalWrite(leftMotorPin2, HIGH);
+  }
+  else if (leftMotorSpeed > 0) {
+    digitalWrite(leftMotorPin1, HIGH);
+    digitalWrite(leftMotorPin2, LOW);
+  }
+  else {
+    digitalWrite(leftMotorPin1, LOW);
+    digitalWrite(leftMotorPin2, LOW);
+  }
+  
+  analogWrite(enableRightMotor, abs(rightMotorSpeed));
+  analogWrite(enableLeftMotor, abs(leftMotorSpeed));
 }
