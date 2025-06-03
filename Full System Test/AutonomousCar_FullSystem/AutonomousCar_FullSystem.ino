@@ -1,4 +1,4 @@
-// Combined Arduino Code v2
+// Combined Arduino Code v3
 // Includes: Ultrasonic obstacle detection, servo motor, IR line detection, and color sensor
 
 #include <Servo.h>
@@ -9,14 +9,6 @@
 #define trigPin 13
 #define echoPin 12
 
-// Motor Driver
-#define IN1 9
-#define IN2 8
-#define ENA 3
-#define IN3 7
-#define IN4 5
-#define ENB 2
-
 // Servo Motor
 #define servoPin 11
 Servo servo;
@@ -24,8 +16,19 @@ int angle = 0;
 int step = 5; // degrees per step
 
 // IR Sensors
-#define IR_LEFT A0
-#define IR_RIGHT A1
+#define IR_SENSOR_RIGHT A0
+#define IR_SENSOR_LEFT A1
+#define MOTOR_SPEED 80
+
+// Right motor
+int enableRightMotor = 2;
+int rightMotorPin1 = 7;
+int rightMotorPin2 = 5;
+
+// Left motor
+int enableLeftMotor = 3;
+int leftMotorPin1 = 9;
+int leftMotorPin2 = 8;
 
 // Color Sensor
 #define S0 A2
@@ -56,19 +59,19 @@ void setup() {
   pinMode(echoPin, INPUT);
 
   // Motor pins
-  pinMode(IN1, OUTPUT);
-  pinMode(IN2, OUTPUT);
-  pinMode(ENA, OUTPUT);
-  pinMode(IN3, OUTPUT);
-  pinMode(IN4, OUTPUT);
-  pinMode(ENB, OUTPUT);
+  pinMode(enableRightMotor, OUTPUT);
+  pinMode(rightMotorPin1, OUTPUT);
+  pinMode(rightMotorPin2, OUTPUT);
+  pinMode(enableLeftMotor, OUTPUT);
+  pinMode(leftMotorPin1, OUTPUT);
+  pinMode(leftMotorPin2, OUTPUT);
+
+  // IR Sensors
+  pinMode(IR_SENSOR_RIGHT, INPUT);
+  pinMode(IR_SENSOR_LEFT, INPUT);
 
   // Servo
   servo.attach(servoPin);
-
-  // IR Sensors
-  pinMode(IR_LEFT, INPUT);
-  pinMode(IR_RIGHT, INPUT);
   delay(500);
 
   // Color Sensor
@@ -79,6 +82,8 @@ void setup() {
   pinMode(sensorOut, INPUT);
   digitalWrite(S0, LOW);
   digitalWrite(S1, HIGH);
+
+  rotateMotor(0, 0);
 }
 
 // --- Functions ---
@@ -90,24 +95,37 @@ long readDistance() {
   return duration * 0.034 / 2;
 }
 
-void moveForward() {
-  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); analogWrite(ENA, 50);
-  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); analogWrite(ENB, 50);
-}
+void rotateMotor(int rightMotorSpeed, int leftMotorSpeed) {
+  // Right motor control
+  if (rightMotorSpeed < 0) {
+    digitalWrite(rightMotorPin1, HIGH);
+    digitalWrite(rightMotorPin2, LOW);
+  }
+  else if (rightMotorSpeed > 0) {
+    digitalWrite(rightMotorPin1, LOW);
+    digitalWrite(rightMotorPin2, HIGH);
+  }
+  else {
+    digitalWrite(rightMotorPin1, HIGH);
+    digitalWrite(rightMotorPin2, HIGH);
+  }
 
-void turnLeft() {
-  digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); analogWrite(ENA, 0);
-  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW); analogWrite(ENB, 50);
-}
+  // Left motor control
+  if (leftMotorSpeed < 0) {
+    digitalWrite(leftMotorPin1, LOW);
+    digitalWrite(leftMotorPin2, HIGH);
+  }
+  else if (leftMotorSpeed > 0) {
+    digitalWrite(leftMotorPin1, HIGH);
+    digitalWrite(leftMotorPin2, LOW);
+  }
+  else {
+    digitalWrite(leftMotorPin1, LOW);
+    digitalWrite(leftMotorPin2, LOW);
+  }
 
-void turnRight() {
-  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); analogWrite(ENA, 50);
-  digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); analogWrite(ENB, 0);
-}
-
-void stopMotors() {
-  digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); analogWrite(ENA, 0);
-  digitalWrite(IN3, LOW); digitalWrite(IN4, LOW); analogWrite(ENB, 0);
+  analogWrite(enableRightMotor, abs(rightMotorSpeed));
+  analogWrite(enableLeftMotor, abs(leftMotorSpeed));
 }
 
 void scanWithServo() {
@@ -126,43 +144,26 @@ void loop() {
   long distance = readDistance();
   Serial.print("Distance: "); Serial.print(distance); Serial.println(" cm");
 
-  if (distance > 0 && distance <= 10) stopMotors();
-  else moveForward();
+  if (distance > 0 && distance <= 10) rotateMotor(0, 0);
 
-  int left = digitalRead(IR_LEFT);
-  int right = digitalRead(IR_RIGHT);
-  int state = (left << 1) | right;
+  int rightIRSensorValue = digitalRead(IR_SENSOR_RIGHT);
+  int leftIRSensorValue = digitalRead(IR_SENSOR_LEFT);
 
-  switch(state) {
-    case 0b11:
-      Serial.println("move forward");
-      moveForward();
-      break;
-    case 0b10:
-      Serial.println("turning left for Right to find the line");
-      turnLeft();
-      break;
-    case 0b01:
-      Serial.println("turning right for Left to find the line");
-      turnRight();
-      break;
-    case 0b00:
-      Serial.println("No line detected");
-      stopMotors();
+  // Line following logic
+  if (rightIRSensorValue == LOW && leftIRSensorValue == LOW) {
+    rotateMotor(MOTOR_SPEED, MOTOR_SPEED);  // Go straight
+  }
+  else if (rightIRSensorValue == HIGH && leftIRSensorValue == LOW) {
+    rotateMotor(-MOTOR_SPEED, MOTOR_SPEED);  // Turn right
+  }
+  else if (rightIRSensorValue == LOW && leftIRSensorValue == HIGH) {
+    rotateMotor(MOTOR_SPEED, -MOTOR_SPEED);  // Turn left
+  }
+  else {
+    rotateMotor(0, 0);  // Stop
 
-      Serial.println("------------------------------");
-      if (!ambientChecked) {
-        for (t = 0, redFrequency = 0, redSum = 0; t <= 10; t++) {
-          digitalWrite(S2, LOW);
-          digitalWrite(S3, LOW);
-          redEdgeTime = pulseIn(sensorOut, HIGH) + pulseIn(sensorOut, LOW);
-          redFrequency = (1 / (redEdgeTime / 1000000.0));
-          redSum += redFrequency;
-        }
-        redAmbient = redSum / 10;
-        ambientChecked = true;
-      }
-
+    Serial.println("------------------------------");
+    if (!ambientChecked) {
       for (t = 0, redFrequency = 0, redSum = 0; t <= 10; t++) {
         digitalWrite(S2, LOW);
         digitalWrite(S3, LOW);
@@ -170,20 +171,30 @@ void loop() {
         redFrequency = (1 / (redEdgeTime / 1000000.0));
         redSum += redFrequency;
       }
-      redAvg = redSum / 10;
-      red = redAvg > redAmbient;
+      redAmbient = redSum / 10;
+      ambientChecked = true;
+    }
 
-      Serial.print("Average red detected: ");
-      Serial.println(redAvg);
-      Serial.println("------------------------------");
-      delay(100);
+    for (t = 0, redFrequency = 0, redSum = 0; t <= 10; t++) {
+      digitalWrite(S2, LOW);
+      digitalWrite(S3, LOW);
+      redEdgeTime = pulseIn(sensorOut, HIGH) + pulseIn(sensorOut, LOW);
+      redFrequency = (1 / (redEdgeTime / 1000000.0));
+      redSum += redFrequency;
+    }
+    redAvg = redSum / 10;
+    red = redAvg > redAmbient;
 
-      if (red) Serial.println("Red detected");
-      else Serial.println("Green detected");
+    Serial.print("Average red detected: ");
+    Serial.println(redAvg);
+    Serial.println("------------------------------");
+    delay(100);
 
-      Serial.println("------------------------------");
-      delay(1000);
-      break;
+    if (red) Serial.println("Red detected");
+    else Serial.println("Green detected");
+
+    Serial.println("------------------------------");
+    delay(1000);
   }
 
   delay(100);
