@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.6//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_6.dtd'>
+<nta>
+	<declaration>clock x;
+bool red=false, green=false, obstacle=false, maneuverCompleted=false, lineDetected = true ;
+broadcast chan switchOn, objectDetected, colorRed, colorGreen, obstacleRemoved, maneuverDone; </declaration>
+	<template>
+		<name x="5" y="5">AutonomousCar</name>
+		<location id="id0" x="-212" y="-8">
+			<name x="-229" y="-42">Idle</name>
+		</location>
+		<location id="id1" x="-212" y="93">
+			<name x="-271" y="110">InitializeSystem</name>
+		</location>
+		<location id="id2" x="238" y="93">
+			<name x="195" y="59">FollowingLine</name>
+		</location>
+		<location id="id3" x="238" y="221">
+			<name x="204" y="229">BrakeStop</name>
+			<label kind="invariant" x="204" y="246">x &lt;= 100</label>
+		</location>
+		<location id="id4" x="-76" y="221">
+			<name x="-118" y="229">DriveAround</name>
+			<label kind="invariant" x="-109" y="246">x &lt;= 1000</label>
+		</location>
+		<location id="id5" x="586" y="221">
+			<name x="527" y="229">RemoveObstacle</name>
+			<label kind="invariant" x="552" y="246">x &lt;= 1000</label>
+		</location>
+		<init ref="id0"/>
+		<transition id="id6">
+			<source ref="id5"/>
+			<target ref="id2"/>
+			<label kind="guard" x="399" y="119">obstacle == false</label>
+			<label kind="synchronisation" x="399" y="102">obstacleRemoved?</label>
+			<label kind="assignment" x="450" y="136">x=0</label>
+		</transition>
+		<transition id="id7">
+			<source ref="id3"/>
+			<target ref="id5"/>
+			<label kind="guard" x="323" y="221">green == true</label>
+			<label kind="synchronisation" x="331" y="238">colorGreen?</label>
+		</transition>
+		<transition id="id8">
+			<source ref="id4"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-85" y="119">maneuverCompleted == true</label>
+			<label kind="synchronisation" x="-58" y="140">maneuverDone?</label>
+			<label kind="assignment" x="-16" y="157">x=0</label>
+		</transition>
+		<transition id="id9">
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="guard" x="76" y="187">red == true</label>
+			<label kind="synchronisation" x="86" y="204">colorRed?</label>
+			<label kind="assignment" x="102" y="221">x = 0</label>
+		</transition>
+		<transition id="id10">
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="guard" x="229" y="136">obstacle == true</label>
+			<label kind="synchronisation" x="238" y="153">objectDetected?</label>
+			<label kind="assignment" x="238" y="178">x=0</label>
+		</transition>
+		<transition id="id11">
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-59" y="76">lineDetected == true</label>
+			<label kind="assignment" x="0" y="93">x = 0</label>
+		</transition>
+		<transition id="id12">
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-212" y="8">true</label>
+			<label kind="synchronisation" x="-212" y="25">switchOn!</label>
+			<label kind="assignment" x="-212" y="42">x=0</label>
+		</transition>
+	</template>
+	<system>system AutonomousCar;</system>
+	<queries>
+		<query>
+			<formula/>
+			<comment/>
+		</query>
+	</queries>
+</nta>
