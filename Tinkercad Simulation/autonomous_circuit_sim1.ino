@@ -1,3 +1,4 @@
+#include <Servo.h>
 // C++ Code
 
 
@@ -18,14 +19,18 @@ const int IN3 = 11;
 const int IN4 = 10;
 const int EN1_2 = 2; // Enable 1&2
 const int EN3_4 = 3; // Enable 3&4
+const int servoPin = 12; // Servo pin
 
 // 
 int sensorValue = 0;
 long duration;
 int distance;
 
+Servo myServo;
+int angle = 0;
+int step = 5;
+
 void setup() {
-  // Set up motor pins
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
   pinMode(IN3, OUTPUT);
@@ -33,32 +38,41 @@ void setup() {
   pinMode(EN1_2, OUTPUT);
   pinMode(EN3_4, OUTPUT);
 
-  // Enable motors
   digitalWrite(EN1_2, HIGH);
   digitalWrite(EN3_4, HIGH);
 
-  // Set up IR sensor and LED
   pinMode(sensorPin, INPUT);
   pinMode(ledPin, OUTPUT);
-
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
+
+  myServo.attach(servoPin); // Attach servo
 
   Serial.begin(9600);
 }
 
 void loop() {
-  // IR sensor for black/white surface detection
+  // Simple servo sweep
+  for (angle = 0; angle <= 180; angle += step) {
+    myServo.write(angle);
+    delay(10);
+  }
+  for (angle = 180; angle >= 0; angle -= step) {
+    myServo.write(angle);
+    delay(10);
+  }
+
+  // IR sensor
   sensorValue = analogRead(sensorPin);
   Serial.println(sensorValue);  
 
   if (sensorValue < 400) {
-    digitalWrite(ledPin, LOW);  // Black surface
+    digitalWrite(ledPin, LOW);
   } else {
-    digitalWrite(ledPin, HIGH); // White surface
+    digitalWrite(ledPin, HIGH);
   }
 
-  // Ultrasonic distance measurement
+  // Ultrasonic
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
@@ -66,17 +80,15 @@ void loop() {
   digitalWrite(trigPin, LOW);
 
   duration = pulseIn(echoPin, HIGH, 30000);
-if (duration == 0) {
-  distance = 999; // Sensor failed, no reading
-} else {
-  distance = duration * 0.034 / 2;
-}
-
+  if (duration == 0) {
+    distance = 999;
+  } else {
+    distance = duration * 0.034 / 2;
+  }
 
   Serial.print("Distance: ");
   Serial.println(distance);
 
-  // Motor 1 control (bottom)
   if (distance < 20) {
     digitalWrite(IN1, LOW);
     digitalWrite(IN2, LOW);
@@ -85,7 +97,6 @@ if (duration == 0) {
     digitalWrite(IN2, LOW);
   }
 
-  // Motor 2 always runs (top)
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
 
