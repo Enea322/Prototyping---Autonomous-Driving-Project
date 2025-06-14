@@ -11,56 +11,55 @@ broadcast chan switchOn, objectDetected, colorRed, colorGreen, obstacleRemoved, 
 		</location>
 		<location id="id1" x="-212" y="93">
 			<name x="-271" y="110">InitializeSystem</name>
+			<label kind="invariant" x="-238" y="127">x &lt;= 50</label>
 		</location>
 		<location id="id2" x="238" y="93">
-			<name x="195" y="59">FollowingLine</name>
+			<name x="187" y="42">FollowingLine</name>
+			<label kind="invariant" x="195" y="59">x &lt;= 20000</label>
 		</location>
 		<location id="id3" x="238" y="221">
 			<name x="204" y="229">BrakeStop</name>
-			<label kind="invariant" x="204" y="246">x &lt;= 100</label>
+			<label kind="invariant" x="204" y="246">x &lt;= 500</label>
 		</location>
 		<location id="id4" x="-76" y="221">
 			<name x="-118" y="229">DriveAround</name>
-			<label kind="invariant" x="-109" y="246">x &lt;= 1000</label>
+			<label kind="invariant" x="-109" y="246">x &lt;= 4000</label>
 		</location>
 		<location id="id5" x="586" y="221">
 			<name x="527" y="229">RemoveObstacle</name>
-			<label kind="invariant" x="552" y="246">x &lt;= 1000</label>
+			<label kind="invariant" x="552" y="246">x &lt;= 3000</label>
 		</location>
 		<init ref="id0"/>
 		<transition id="id6">
 			<source ref="id5"/>
 			<target ref="id2"/>
 			<label kind="guard" x="399" y="119">obstacle == false</label>
-			<label kind="synchronisation" x="399" y="102">obstacleRemoved?</label>
 			<label kind="assignment" x="450" y="136">x=0</label>
 		</transition>
 		<transition id="id7">
 			<source ref="id3"/>
 			<target ref="id5"/>
-			<label kind="guard" x="323" y="221">green == true</label>
-			<label kind="synchronisation" x="331" y="238">colorGreen?</label>
+			<label kind="guard" x="280" y="204">red == false &amp;&amp; green == true</label>
+			<label kind="assignment" x="365" y="221">x = 0</label>
 		</transition>
 		<transition id="id8">
 			<source ref="id4"/>
 			<target ref="id2"/>
 			<label kind="guard" x="-85" y="119">maneuverCompleted == true</label>
-			<label kind="synchronisation" x="-58" y="140">maneuverDone?</label>
 			<label kind="assignment" x="-16" y="157">x=0</label>
 		</transition>
 		<transition id="id9">
 			<source ref="id3"/>
 			<target ref="id4"/>
-			<label kind="guard" x="76" y="187">red == true</label>
-			<label kind="synchronisation" x="86" y="204">colorRed?</label>
+			<label kind="guard" x="76" y="195">red == true</label>
 			<label kind="assignment" x="102" y="221">x = 0</label>
 		</transition>
 		<transition id="id10">
 			<source ref="id2"/>
 			<target ref="id3"/>
-			<label kind="guard" x="229" y="136">obstacle == true</label>
-			<label kind="synchronisation" x="238" y="153">objectDetected?</label>
-			<label kind="assignment" x="238" y="178">x=0</label>
+			<label kind="guard" x="136" y="144">obstacle == true &amp;&amp; x &gt;= 300</label>
+			<label kind="assignment" x="238" y="170">x=0</label>
+			<nail x="238" y="204"/>
 		</transition>
 		<transition id="id11">
 			<source ref="id1"/>
@@ -72,7 +71,6 @@ broadcast chan switchOn, objectDetected, colorRed, colorGreen, obstacleRemoved, 
 			<source ref="id0"/>
 			<target ref="id1"/>
 			<label kind="guard" x="-212" y="8">true</label>
-			<label kind="synchronisation" x="-212" y="25">switchOn!</label>
 			<label kind="assignment" x="-212" y="42">x=0</label>
 		</transition>
 	</template>
