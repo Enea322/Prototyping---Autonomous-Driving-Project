@@ -1,0 +1,7 @@
+Set these during simulation:
+
+- obstacle = true; → from readDistance() <= 10
+
+- red = true; or green = true; → from color check
+
+- maneuverCompleted = true; → after moveUntilLine()
