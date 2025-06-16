@@ -39,8 +39,8 @@ const int MOTOR_SPEED = 80;
 const int FORWARD_DURATION_SHORT = 1500;
 const int FORWARD_DURATION_LONG  = 2000;
 const int FORWARD_DURATION_UTURN = 3000;
-const int TURN_90_DURATION       = 600;
-const int UTURN_DURATION         = 1200;
+const int TURN_90_DURATION       = 250;
+const int UTURN_DURATION         = 700;
 const int SERVO_DELAY            = 300;
 const int SERVO_RESET_DELAY      = 200;
 
@@ -107,6 +107,9 @@ void loop() {
   Serial.print("Distance: "); Serial.print(distance); Serial.println(" cm");
 
   if (distance > 0 && distance <= 10) {
+    
+    rotateMotor(0, 0);
+    
     Serial.println("------------------------------");
     
 
@@ -225,19 +228,21 @@ void moveForward(int speed, int duration) {
 
 void turnLeft90() {
   rotateMotor(-MOTOR_SPEED, MOTOR_SPEED);
-  delay(TURN_90_DURATION);
+  millis(TURN_90_DURATION);
   rotateMotor(0, 0);
 }
 
 void turnRight90() {
   rotateMotor(MOTOR_SPEED, -MOTOR_SPEED);
-  delay(TURN_90_DURATION);
+  millis(TURN_90_DURATION);
   rotateMotor(0, 0);
 }
 
 void uTurn() {
   rotateMotor(MOTOR_SPEED, -MOTOR_SPEED);
-  delay(UTURN_DURATION);
+  while(true){
+    if(rightIR == LOW) break;
+  }
   rotateMotor(0, 0);
 }
 
