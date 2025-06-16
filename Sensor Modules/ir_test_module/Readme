@@ -1,3 +1,5 @@
 IR Sensor Module Test Code:
 
 The code is designed to independently test the IR sensor's functionality. It will allow us to independently verify its functionality and performance.
+
+DEFAULT: HIGH
