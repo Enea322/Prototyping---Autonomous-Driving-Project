@@ -3,6 +3,7 @@
 #define IR_SENSOR_RIGHT A0
 #define IR_SENSOR_LEFT  A1
 #define MOTOR_SPEED     80
+#define TURN_SPEED      65
 
 // Right motor
 int enableRightMotor = 2;
@@ -21,7 +22,12 @@ int leftMotorPin2    = 8;
 // Servo pin
 const int servo = 11;
 
-int safe_dis = 12; // in cm
+// ===== Globals & State =====
+enum LastSeen { NONE, LEFT, RIGHT };
+LastSeen lastSeen    = NONE;
+unsigned long lostTimer = 0;
+
+int safe_dis = 10; // in cm
 int left_dis, right_dis, front_dis;
 
 // New flag: have we already started avoiding this obstacle?
@@ -64,18 +70,11 @@ void loop() {
       stopCar();
       delay(200);
       avoidObject();        // does Check_side() + turn
-      delay(800);
-      stopCar();
       // leave avoiding==true so we don’t re-scan immediately
     }
     else {
       // normal line follow
-      int rightIR = digitalRead(IR_SENSOR_RIGHT);
-      int leftIR  = digitalRead(IR_SENSOR_LEFT);
-      if (rightIR == LOW && leftIR == LOW)      moveForward();
-      else if (rightIR == HIGH && leftIR == LOW) turnRight();
-      else if (rightIR == LOW && leftIR == HIGH) turnLeft();
-      else                                       stopCar();
+      followLine();
     }
   }
   else {
@@ -86,10 +85,92 @@ void loop() {
       delay(200);
     }
     else {
-      moveForward();
+      followLine();
     }
   }
 }
+
+// ===== followLine() with overshoot detection & recovery =====
+void followLine() {
+  bool rightIR = (digitalRead(IR_SENSOR_RIGHT) == HIGH);
+  bool leftIR  = (digitalRead(IR_SENSOR_LEFT ) == HIGH);
+
+  // 1) Right sensor on black - steer right
+  if ( rightIR && !leftIR ) {
+    lastSeen   = RIGHT;
+    turnRight();
+    lostTimer  = 0;                // reset coast timer
+  }
+  // 2) Left sensor on black - steer left
+  else if ( !rightIR && leftIR ) {
+    lastSeen   = LEFT;
+    turnLeft();
+    lostTimer  = 0;
+  }
+  // 3) Both sensors see white - could be centred or overshoot
+  else if ( !rightIR && !leftIR ) {
+    // start the short “coast” timer on first entry
+    if ( lostTimer == 0 ) lostTimer = millis();
+
+    moveForward();                // coast straight
+
+    // if coast exceeds threshold, we’ve truly lost the line
+    if ( millis() - lostTimer > 80 ) {
+      recoverLine();
+      lostTimer = 0;
+    }
+  }
+  // 4) (both HIGH — unlikely) just go forward
+  else {
+    moveForward();
+    lastSeen  = NONE;
+    lostTimer = 0;
+  }
+}
+
+// ===== recoverLine() to re-acquire the track =====
+void recoverLine() {
+  stopCar();
+  delay(100);
+
+  if ( lastSeen == RIGHT ) {
+    // Case: overshot to the left - pivot right back onto line
+    turnRight();
+    while ( digitalRead(IR_SENSOR_RIGHT) == LOW ) { }
+    stopCar();
+    delay(100);
+
+    turnRight();
+    while ( digitalRead(IR_SENSOR_RIGHT) == HIGH ) { }
+    stopCar();
+    delay(100);
+  }
+  else if ( lastSeen == LEFT ) {
+    // Case: overshot to the right - pivot left back onto line
+    turnLeft();
+    while ( digitalRead(IR_SENSOR_LEFT) == LOW ) { }
+    stopCar();
+    delay(100);
+
+    turnLeft();
+    while ( digitalRead(IR_SENSOR_LEFT) == HIGH ) { }
+    stopCar();
+    delay(100);
+  }
+  else {
+    // No history: back up a bit then try again
+    turnBackward();
+    delay(200);
+    stopCar();
+    delay(100);
+  }
+
+  // now centered again - go forward to adjust onto the line
+  moveForward();
+  delay(100);
+  stopCar();
+}
+
 
 void rotateMotor(int rightMotorSpeed, int leftMotorSpeed) {
   if (rightMotorSpeed < 0) {
@@ -136,28 +217,46 @@ void servoPulse(int pin, int angle) {
 
 void avoidObject() {
   Check_side();
+
+  turnBackward();
+  delay(500);
+  stopCar();
+  delay(500);
   
   turnRight();
   delay(300);
-  //stopCar();
-  //delay(500);
+  stopCar();
+  delay(1000);
 
-  moveForward();
-  delay(5500);
+  turnForward();
+  delay(650);
   stopCar();
   delay(500);
 
   turnLeft();
-  delay(250);
+  delay(500);
   stopCar();
   delay(500);
 
-  moveForward();
-  delay(150);
+  
+  turnForward();
+  // keep going until the right IR sensor sees BLACK (HIGH)
+  while (digitalRead(IR_SENSOR_RIGHT) == LOW) {
+  // nothing—just wait until we hit the line
+  }
   stopCar();
+  delay(500);
+
+  // --- then replace turnRight(); delay(80); ---
   turnRight();
-  delay(80);
+  // keep turning until the right IR sensor sees WHITE (LOW),
+  // which means both sensors are now on the line again
+  while (digitalRead(IR_SENSOR_RIGHT) == HIGH) {
+  // nothing—just wait until we leave the black
+  }
   stopCar();
+
+  // small pause so everything settles
   delay(500);
 }
 
@@ -181,3 +280,6 @@ void moveForward() { rotateMotor(MOTOR_SPEED,  MOTOR_SPEED); }
 void turnRight()   { rotateMotor(-MOTOR_SPEED, MOTOR_SPEED); }
 void turnLeft()    { rotateMotor(MOTOR_SPEED, -MOTOR_SPEED); }
 void stopCar()     { rotateMotor(0, 0); }
+
+void turnForward() { rotateMotor(TURN_SPEED,  TURN_SPEED); }
+void turnBackward() { rotateMotor(-TURN_SPEED,  -TURN_SPEED); }
